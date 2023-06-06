@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+  <TargetType DeviceType="CMCvMU-213.EDU">
+    <Information all_URI_location="UDP://192.168.1.1:17973$TCP://192.168.1.1:17973$RS232://1:9600:N:8:1"/>
+  </TargetType>
+</Config>

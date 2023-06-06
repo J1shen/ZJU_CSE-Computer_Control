@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>651</width>
-    <height>417</height>
+    <width>680</width>
+    <height>416</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,7 @@
     <property name="font">
      <font>
       <family>Songti TC</family>
-      <pointsize>34</pointsize>
+      <pointsize>20</pointsize>
       <weight>75</weight>
       <italic>false</italic>
       <bold>true</bold>
@@ -156,7 +156,7 @@
      <rect>
       <x>280</x>
       <y>280</y>
-      <width>331</width>
+      <width>379</width>
       <height>41</height>
      </rect>
     </property>
@@ -203,7 +203,7 @@
      <rect>
       <x>280</x>
       <y>320</y>
-      <width>331</width>
+      <width>379</width>
       <height>41</height>
      </rect>
     </property>
@@ -218,23 +218,29 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="Button_left">
+        <widget class="QPushButton" name="Button_step">
          <property name="text">
-          <string>Left</string>
+          <string>Step</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="Button_right">
+        <widget class="QPushButton" name="Button_Fan">
          <property name="text">
-          <string>Right</string>
+          <string>Fan</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="Button_heat">
+        <widget class="QPushButton" name="Button_Trigger">
          <property name="text">
-          <string>Heat</string>
+          <string>Trigger</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
@@ -305,14 +311,33 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="label_pic">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>70</y>
+      <width>361</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>pic.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>651</width>
-     <height>21</height>
+     <width>680</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSystem">

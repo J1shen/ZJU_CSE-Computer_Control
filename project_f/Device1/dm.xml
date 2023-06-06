@@ -1,0 +1,3477 @@
+<?xml version='1.0' encoding='utf-8'?>
+<DeviceDescription CreateDate="2019-11-19" Version="1.0.0.0">
+	<Device Description="MU-213.EDU是基于CMC芯片的可扩展硬件开发平台板卡，支持直插式扩展板卡和总线式扩展板卡，实现DIDO、AIAO、运动控制、电机驱动等功能。\nMU-213.EDU具有：\n·2路以太网接口\n·2路RS485接口\n·2路CAN接口" FWType="0X0693" FWVersion="0X0104" Info="CMC硬件开发平台" SWVersion="0X0101" Type="MU-213.EDU" />
+	<ModuleConfig>
+		<Block Description="配置数据ID" Length="0x4" Name="配置数据ID" Offset="0x0" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="设备版本" Length="0x8" Name="设备版本" Offset="0x4" SegementNo="0x00">
+			<Param Access="RW" DataType="WORD" DefaultValue="0x20" Description="0.0.2.0" DisplayManner="DIAGITAL" Name="硬件类型" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0X0" Description="" DisplayManner="DIAGITAL" Name="硬件版本" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0X0" Description="" DisplayManner="DIAGITAL" Name="软件版本" />
+			<Param Access="RW" DataType="BYTE[2]" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="配置工作模式，Debug：程序不会自动启动，Release：程序会上电自动启动运行" Length="0x4" Name="组态工作模式" Offset="0xC" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="工作模式">
+				<DropdownList>
+					<Item Display="Debug" Value="0x00" />
+					<Item Display="Release" Value="0x01" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE[3]" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="系统频率配置" Length="0xC" Name="内核频率" Offset="0x10" SegementNo="0x00">
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x0" Description="" DisplayManner="DIAGITAL" Name="外部输入频率" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x0" Description="" DisplayManner="DIAGITAL" Name="CPU频率" />
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="CPU-AHB-APB比例配置">
+				<DropdownList>
+					<Item Display="1:1:1" Value="0x00" />
+					<Item Display="2:1:1" Value="0x01" />
+					<Item Display="2:2:1" Value="0x02" />
+					<Item Display="4:1:1" Value="0x03" />
+					<Item Display="4:2:1" Value="0x04" />
+					<Item Display="8:1:1" Value="0x05" />
+					<Item Display="8:2:1" Value="0x06" />
+					<Item Display="16:2:1" Value="0x07" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE[3]" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="" Length="0x0C" Name="485端口1" Offset="0x9c" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="485端口1模块开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0x00" />
+					<Item Display="开启" Value="0x01" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="485端口1校验位">
+				<DropdownList>
+					<Item Display="无校验" Value="0x00" />
+					<Item Display="偶校验" Value="0x01" />
+					<Item Display="奇校验" Value="0x02" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="485端口1停止位">
+				<DropdownList>
+					<Item Display="1位" Value="0x00" />
+					<Item Display="2位" Value="0x01" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x03" Description="" DisplayManner="DROPDOWNLIST" Name="485端口1数据位数">
+				<DropdownList>
+					<Item Display="5位" Value="0x00" />
+					<Item Display="6位" Value="0x01" />
+					<Item Display="7位" Value="0x02" />
+					<Item Display="8位" Value="0x03" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x2580" Description="" DisplayManner="DROPDOWNLIST" Name="485端口1波特率">
+				<DropdownList>
+					<Item Display="4800" Value="0x12C0" />
+					<Item Display="9600" Value="0x2580" />
+					<Item Display="14400" Value="0x3840" />
+					<Item Display="19200" Value="0x4B00" />
+					<Item Display="38400" Value="0x9600" />
+					<Item Display="56000" Value="0xDAC0" />
+					<Item Display="115200" Value="0x1C200" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="485端口1功能选择">
+				<DropdownList>
+					<Item Display="空闲" Value="0x00" />
+					<Item Display="组态服务" Value="0x01" />
+					<Item Display="Modbus" Value="0x02" />
+					<Item Display="通信功能块1" Value="0x04" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="配置控制信号开关及电平" DisplayManner="DROPDOWNLIST" Name="485端口1控制信号">
+				<DropdownList>
+					<Item Display="待机低电平" Value="0x00" />
+					<Item Display="待机高电平" Value="0x01" />
+					<Item Display="停用控制信号" Value="0x02" />
+				</DropdownList>
+			</Param>
+			<Param Access="RO" DataType="BYTE" DefaultValue="0x1D" Description="选择控制脚，0~63对应引脚号，其他无效" DisplayManner="DIAGITAL" Name="485端口1控制脚编号" />
+			<Param Access="RO" DataType="BYTE[1]" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="" Length="0x0C" Name="485端口2" Offset="0xa8" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="485端口2模块开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0x00" />
+					<Item Display="开启" Value="0x01" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="485端口2校验位">
+				<DropdownList>
+					<Item Display="无校验" Value="0x00" />
+					<Item Display="偶校验" Value="0x01" />
+					<Item Display="奇校验" Value="0x02" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="485端口2停止位">
+				<DropdownList>
+					<Item Display="1位" Value="0x00" />
+					<Item Display="2位" Value="0x01" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x03" Description="" DisplayManner="DROPDOWNLIST" Name="485端口2数据位数">
+				<DropdownList>
+					<Item Display="5位" Value="0x00" />
+					<Item Display="6位" Value="0x01" />
+					<Item Display="7位" Value="0x02" />
+					<Item Display="8位" Value="0x03" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x2580" Description="" DisplayManner="DROPDOWNLIST" Name="485端口2波特率">
+				<DropdownList>
+					<Item Display="4800" Value="0x12C0" />
+					<Item Display="9600" Value="0x2580" />
+					<Item Display="14400" Value="0x3840" />
+					<Item Display="19200" Value="0x4B00" />
+					<Item Display="38400" Value="0x9600" />
+					<Item Display="56000" Value="0xDAC0" />
+					<Item Display="115200" Value="0x1C200" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="485端口2功能选择">
+				<DropdownList>
+					<Item Display="空闲" Value="0x00" />
+					<Item Display="组态服务" Value="0x01" />
+					<Item Display="Modbus" Value="0x03" />
+					<Item Display="通信功能块2" Value="0x05" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="配置控制信号开关及电平" DisplayManner="DROPDOWNLIST" Name="485端口2控制信号">
+				<DropdownList>
+					<Item Display="待机低电平" Value="0x00" />
+					<Item Display="待机高电平" Value="0x01" />
+					<Item Display="停用控制信号" Value="0x02" />
+				</DropdownList>
+			</Param>
+			<Param Access="RO" DataType="BYTE" DefaultValue="0x1E" Description="选择控制脚，0~63对应引脚号，其他无效" DisplayManner="DIAGITAL" Name="485端口2控制脚编号" />
+			<Param Access="RO" DataType="BYTE[1]" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="CAN1配置" Length="0x10" Name="CAN1" Offset="0xB4" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DROPDOWNLIST" Name="CAN1模块开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="CAN1模式">
+				<DropdownList>
+					<Item Display="标准模式" Value="0" />
+					<Item Display="扩展模式" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="CAN1功能选择">
+				<DropdownList>
+					<Item Display="通信功能块" Value="0" />
+					<Item Display="CANopen总线通信" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0xFFFFFFFF" Description="" DisplayManner="DIAGITAL" Name="CAN1地址屏蔽码" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x0" Description="" DisplayManner="DIAGITAL" Name="CAN1地址过滤码" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0xC350" Description="" DisplayManner="DROPDOWNLIST" Name="CAN1波特率">
+				<DropdownList>
+					<Item Display="5000" Value="0x1388" />
+					<Item Display="10000" Value="0x2710" />
+					<Item Display="20000" Value="0x4E20" />
+					<Item Display="50000" Value="0xC350" />
+					<Item Display="100000" Value="0x186A0" />
+					<Item Display="125000" Value="0x1E848" />
+					<Item Display="250000" Value="0x3D090" />
+					<Item Display="500000" Value="0x7A120" />
+					<Item Display="800000" Value="0xC3500" />
+					<Item Display="1000000" Value="0F4240" />
+				</DropdownList>
+			</Param>
+		</Block>
+		<Block Description="CAN2配置" Length="0x10" Name="CAN2" Offset="0xC4" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="CAN2模块开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="CAN2模式">
+				<DropdownList>
+					<Item Display="标准模式" Value="0" />
+					<Item Display="扩展模式" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="CAN2功能选择">
+				<DropdownList>
+					<Item Display="通信功能块" Value="0" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0xFFFFFFFF" Description="" DisplayManner="DIAGITAL" Name="CAN2地址屏蔽码" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x0" Description="" DisplayManner="DIAGITAL" Name="CAN2地址过滤码" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0xC350" Description="" DisplayManner="DROPDOWNLIST" Name="CAN2波特率">
+				<DropdownList>
+					<Item Display="5000" Value="0x1388" />
+					<Item Display="10000" Value="0x2710" />
+					<Item Display="20000" Value="0x4E20" />
+					<Item Display="50000" Value="0xC350" />
+					<Item Display="100000" Value="0x186A0" />
+					<Item Display="125000" Value="0x1E848" />
+					<Item Display="250000" Value="0x3D090" />
+					<Item Display="500000" Value="0x7A120" />
+					<Item Display="800000" Value="0xC3500" />
+					<Item Display="1000000" Value="0F4240" />
+				</DropdownList>
+			</Param>
+		</Block>
+		<Block Description="TCP/IP配置" Length="0x14" Name="网口1" Offset="0xD4" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="网口1模块开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0x00" />
+					<Item Display="开启" Value="0x01" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x4635" Description="" DisplayManner="DIAGITAL" Name="网口1端口" />
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="[C0,A8,01,01]" Description="" DisplayManner="DIAGITAL" Name="网口1IP地址" />
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="[FF,FF,FF,0]" Description="" DisplayManner="DIAGITAL" Name="网口1子网掩码" />
+			<Param Access="RW" DataType="BYTE[6]" DefaultValue="[1C,6F,C0,A8,01,01]" Description="" DisplayManner="DIAGITAL" Name="网口1MAC地址" />
+			<Param Access="WO" DataType="BYTE[2]" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="TCP/IP配置" Length="0x14" Name="网口2" Offset="0xE8" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="网口2模块开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0x00" />
+					<Item Display="开启" Value="0x01" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x4635" Description="" DisplayManner="DIAGITAL" Name="网口2端口" />
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="[C0,A8,01,02]" Description="" DisplayManner="DIAGITAL" Name="网口2IP地址" />
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="[FF,FF,FF,0]" Description="" DisplayManner="DIAGITAL" Name="网口2子网掩码" />
+			<Param Access="RW" DataType="BYTE[6]" DefaultValue="[1C,6F,C0,A8,01,02]" Description="" DisplayManner="DIAGITAL" Name="网口2MAC地址" />
+			<Param Access="WO" DataType="BYTE[2]" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Access="RW" Description="Modbus RTU1配置" Length="0x0C" Name="Modbus RTU1" Offset="0x1C4" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus RTU1模块开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus RTU1主从模式选择">
+				<DropdownList>
+					<Item Display="从机模式" Value="0" />
+					<Item Display="主机模式" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DIAGITAL" Name="Modbus RTU1从机ID" />
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus RTU1接口类型">
+				<DropdownList>
+					<Item Display="RTU" Value="1" />
+					<Item Display="ASCII" Value="2" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="WORD" DefaultValue="0x1F4" Description="" DisplayManner="DIAGITAL" Name="Modbus RTU1超时时间" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x64" Description="" DisplayManner="DIAGITAL" Name="Modbus RTU1通信延迟" />
+			<Param Access="WO" DataType="BYTE[4]" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Access="RW" Description="Modbus RTU2配置" Length="0x0C" Name="Modbus RTU2" Offset="0x1D0" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus RTU2模块开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus RTU2主从模式选择">
+				<DropdownList>
+					<Item Display="从机模式" Value="0" />
+					<Item Display="主机模式" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DIAGITAL" Name="Modbus RTU2从机ID" />
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus RTU2接口类型">
+				<DropdownList>
+					<Item Display="RTU" Value="1" />
+					<Item Display="ASCII" Value="2" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="WORD" DefaultValue="0x1F4" Description="" DisplayManner="DIAGITAL" Name="Modbus RTU2超时时间" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x64" Description="" DisplayManner="DIAGITAL" Name="Modbus RTU2通信延迟" />
+			<Param Access="WO" DataType="BYTE[4]" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Access="RW" Description="本身配置为ModBus TCP从站,从而被ModBus TCP主站设备连接" Length="0x08" Name="Modbus TCP从站配置" Offset="0x1DC" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus TCP从站开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus TCP从站网口选择">
+				<DropdownList>
+					<Item Display="网口1" Value="0" />
+					<Item Display="网口2" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="WO" DataType="BYTE[2]" DefaultValue="[0, 0]" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x1F6" Description="TCP端口号" DisplayManner="DIAGITAL" Name="Modbus TCP从站端口号" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x32" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站超时时间" />
+		</Block>
+		<Block Access="RW" Description="Modbus TCP主站1配置,本身为ModBus TCP主站,配置需要连接ModBus TCP从站的信息" Length="0x0C" Name="Modbus TCP主站1配置" Offset="0x1E4" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus TCP主站1开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从机1 ID" />
+			<Param Access="WO" DataType="BYTE[2]" DefaultValue="[0, 0]" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="[C0,A8,01,64]" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站1 IP地址" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x1F6" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站1端口号" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x32" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站1超时时间" />
+		</Block>
+		<Block Access="RW" Description="Modbus TCP主站2配置,本身为ModBus TCP主站,配置需要连接ModBus TCP从站的信息" Length="0x0C" Name="Modbus TCP主站2配置" Offset="0x1F0" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus TCP主站2开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从机2 ID" />
+			<Param Access="WO" DataType="BYTE[2]" DefaultValue="[0, 0]" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="[C0,A8,01,64]" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站2 IP地址" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x1F6" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站2端口号" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x32" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站2超时时间" />
+		</Block>
+		<Block Access="RW" Description="Modbus TCP主站3配置,本身为ModBus TCP主站,配置需要连接ModBus TCP从站的信息" Length="0x0C" Name="Modbus TCP主站3配置" Offset="0x1FC" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus TCP主站3开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从机3 ID" />
+			<Param Access="WO" DataType="BYTE[2]" DefaultValue="[0, 0]" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="[C0,A8,01,64]" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站3 IP地址" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x1F6" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站3端口号" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x32" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站3超时时间" />
+		</Block>
+		<Block Access="RW" Description="Modbus TCP主站4配置,本身为ModBus TCP主站,配置需要连接ModBus TCP从站的信息" Length="0x0C" Name="Modbus TCP主站4配置" Offset="0x208" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus TCP主站4开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从机4 ID" />
+			<Param Access="WO" DataType="BYTE[2]" DefaultValue="[0, 0]" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="[C0,A8,01,64]" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站4 IP地址" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x1F6" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站4端口号" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x32" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站4超时时间" />
+		</Block>
+		<Block Access="RW" Description="Modbus TCP主站5配置,本身为ModBus TCP主站,配置需要连接ModBus TCP从站的信息" Length="0x0C" Name="Modbus TCP主站5配置" Offset="0x214" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus TCP主站5开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从机5 ID" />
+			<Param Access="WO" DataType="BYTE[2]" DefaultValue="[0, 0]" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="[C0,A8,01,64]" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站5 IP地址" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x1F6" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站5端口号" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x32" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站5超时时间" />
+		</Block>
+		<Block Access="RW" Description="Modbus TCP主站6配置,本身为ModBus TCP主站,配置需要连接ModBus TCP从站的信息" Length="0x0C" Name="Modbus TCP主站6配置" Offset="0x220" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="Modbus TCP主站6开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从机6 ID" />
+			<Param Access="WO" DataType="BYTE[2]" DefaultValue="[0, 0]" Description="" DisplayManner="DIAGITAL" Name="保留" />
+			<Param Access="RW" DataType="BYTE[4]" DefaultValue="[C0,A8,01,64]" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站6 IP地址" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x1F6" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站6 端口号" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x32" Description="" DisplayManner="DIAGITAL" Name="Modbus TCP从站6超时时间" />
+		</Block>
+		<Block Description="下位机接入的直插类型板卡信息" Length="0x04" Name="直插类型板卡" Offset="0x22C" SegementNo="0x00">
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x4b000000" Description="" DisplayManner="DIAGITAL" Name="直插类板卡信息" />
+		</Block>
+		<Block Description="下位机接入的直插型板卡GPIO配置信息" Length="0x40" Name="直插型板卡GPIO配置信息" Offset="0x230" SegementNo="0x00">
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="MD-211配置信息" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x83f80000" Description="" DisplayManner="DIAGITAL" Name="DI-211配置信息" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="DI-212配置信息" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="PI-211配置信息" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0xc0000000" Description="" DisplayManner="DIAGITAL" Name="PO-211配置信息" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="SC-211配置信息" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0xfc000000" Description="" DisplayManner="DIAGITAL" Name="DO-211配置信息" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0xcfe00000" Description="" DisplayManner="DIAGITAL" Name="AIO-211配置信息" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="AI-231配置信息" />
+		</Block>
+		<Block Description="CANopen配置" Length="0x04" Name="CANopen" Offset="0x270" SegementNo="0x00">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="CANopen开关">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="20" Description="" DisplayManner="DIAGITAL" Name="CANopen节点ID" />
+			<Param Access="RW" DataType="BYTE" DefaultValue="1" Description="" DisplayManner="DROPDOWNLIST" Name="CANopen模式">
+				<DropdownList>
+					<Item Display="CANopen主机" Value="1" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DROPDOWNLIST" Name="掉电保持开关(寄存器区域:MQB2300-2999)">
+				<DropdownList>
+					<Item Display="关闭" Value="0" />
+					<Item Display="开启" Value="1" />
+				</DropdownList>
+			</Param>
+		</Block>
+	</ModuleConfig>
+	<ExpendModule>
+		<DirectModules>
+			<ModuleConfig>
+				<Block Description="板卡配置信息" Length="1" Name="PO-211" Offset="0x00" SegementNo="0xFF">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0x00" />
+							<Item Display="开启" Value="0x01" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="X轴参数配置" Length="0x04" Name="XOUT参数配置" Offset="0x18C" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="XOUT模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x2" Description="" DisplayManner="DROPDOWNLIST" Name="XOUT模式选择">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="PWM模式" Value="0X02" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="X轴参数配置" Length="0x04" Name="YOUT参数配置" Offset="0x190" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="YOUT模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x2" Description="" DisplayManner="DROPDOWNLIST" Name="YOUT模式选择">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="PWM模式" Value="0X02" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="X轴参数配置" Length="0x04" Name="ZOUT参数配置" Offset="0x194" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="ZOUT模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="ZOUT模式选择">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="PWM模式" Value="0X02" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="X轴参数配置" Length="0x04" Name="UOUT参数配置" Offset="0x198" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="UOUT模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="UOUT模式选择">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="PWM模式" Value="0X02" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="X轴参数配置" Length="0x04" Name="VOUT参数配置" Offset="0x19C" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="VOUT模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="VOUT模式选择">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="PWM模式" Value="0X02" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="X轴参数配置" Length="0x04" Name="WOUT参数配置" Offset="0x1A0" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="WOUT模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="WOUT模式选择">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="PWM模式" Value="0X02" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[9]" Offset="0x6E" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[9]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[11]" Offset="0x72" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[11]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[13]" Offset="0x76" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[13]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[15]" Offset="0x7A" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[15]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_A[11]" Offset="0x32" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_A[11]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Depiscription="" Length="2" Name="GPIO1_A[13]" Offset="0x36" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_A[13]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="触摸屏配置选项" Length="1" Name="触摸屏配置选项" Offset="0x00" SegementNo="0xFF">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="触摸屏开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0x00" />
+							<Item Display="开启" Value="0x01" />
+						</DropdownList>
+					</Param>
+				</Block>
+			</ModuleConfig>
+			<ModuleConfig>
+				<Block Description="板卡配置信息" Length="0x00" Name="DI-211" Offset="0x00" SegementNo="0xFF">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0x00" />
+							<Item Display="开启" Value="0x01" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH1" Offset="0x28" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH1通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH1硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH2" Offset="0x2A" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH2通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH2硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH3" Offset="0x2C" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH3通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x02" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH3硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH4" Offset="0x2E" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH4通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x03" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH4硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH5" Offset="0x26" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH5通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH5硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH6" Offset="0x24" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x2" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH6通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x05" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH6硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH7" Offset="0x80" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x2" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH7通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x06" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH7硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH8" Offset="0x82" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x02" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH8通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x07" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH8硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH9" Offset="0x4A" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x2" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH9通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x08" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH9硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH10" Offset="0x48" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x2" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH10通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x09" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH10硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH11" Offset="0x46" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x2" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH11通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x0A" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH11硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DI211_CH12" Offset="0x44" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x2" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH12通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x02" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x0B" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH12硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+			</ModuleConfig>
+			<ModuleConfig>
+				<Block Description="板卡配置信息" Length="0x00" Name="DO-211" Offset="0x00" SegementNo="0xFF">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0x00" />
+							<Item Display="开启" Value="0x01" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH1" Offset="0x7C" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x03" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH1通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH1硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH2" Offset="0x7E" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x3" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH2通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH2硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH3" Offset="0x17C" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x3" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH3通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x02" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH3硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH4" Offset="0x17A" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x3" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH4通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x03" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH4硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH5" Offset="0x178" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x3" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH5通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH5硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH6" Offset="0x176" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH6通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x05" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH6硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH7" Offset="0x4E" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH7通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x06" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH7硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH8" Offset="0x4C" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH8通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x07" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH8硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH9" Offset="0x50" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH9通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x08" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH9硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH10" Offset="0x52" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH10通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x09" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH10硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH11" Offset="0x86" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH11通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x0A" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH11硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="DO211_CH12" Offset="0x84" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH12通道配置">
+						<DropdownList>
+							<Item Display="失能通道" Value="0x00" />
+							<Item Display="使能通道" Value="0x03" />
+						</DropdownList>
+					</Param>
+					<Param Access="RO" DataType="BYTE" DefaultValue="0x0B" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH12硬件变量地址">
+						<DropdownList>
+							<Item Display="0.0" Value="0x00" />
+							<Item Display="0.1" Value="0x01" />
+							<Item Display="0.2" Value="0x02" />
+							<Item Display="0.3" Value="0x03" />
+							<Item Display="0.4" Value="0x04" />
+							<Item Display="0.5" Value="0x05" />
+							<Item Display="0.6" Value="0x06" />
+							<Item Display="0.7" Value="0x07" />
+							<Item Display="1.0" Value="0x08" />
+							<Item Display="1.1" Value="0x09" />
+							<Item Display="1.2" Value="0x0A" />
+							<Item Display="1.3" Value="0x0B" />
+							<Item Display="1.4" Value="0x0C" />
+							<Item Display="1.5" Value="0x0D" />
+							<Item Display="1.6" Value="0x0E" />
+							<Item Display="1.7" Value="0x0F" />
+							<Item Display="2.0" Value="0x10" />
+							<Item Display="2.1" Value="0x11" />
+							<Item Display="2.2" Value="0x12" />
+							<Item Display="2.3" Value="0x13" />
+							<Item Display="2.4" Value="0x14" />
+							<Item Display="2.5" Value="0x15" />
+							<Item Display="2.6" Value="0x16" />
+							<Item Display="2.7" Value="0x17" />
+							<Item Display="3.0" Value="0x18" />
+							<Item Display="3.1" Value="0x19" />
+							<Item Display="3.2" Value="0x1A" />
+							<Item Display="3.3" Value="0x1B" />
+							<Item Display="3.4" Value="0x1C" />
+							<Item Display="3.5" Value="0x1D" />
+							<Item Display="3.6" Value="0x1E" />
+							<Item Display="3.7" Value="0x1F" />
+							<Item Display="4.0" Value="0x20" />
+							<Item Display="4.1" Value="0x21" />
+							<Item Display="4.2" Value="0x22" />
+							<Item Display="4.3" Value="0x23" />
+							<Item Display="4.4" Value="0x24" />
+							<Item Display="4.5" Value="0x25" />
+							<Item Display="4.6" Value="0x26" />
+							<Item Display="4.7" Value="0x27" />
+							<Item Display="5.0" Value="0x28" />
+							<Item Display="5.1" Value="0x29" />
+							<Item Display="5.2" Value="0x2A" />
+							<Item Display="5.3" Value="0x2B" />
+							<Item Display="5.4" Value="0x2C" />
+							<Item Display="5.5" Value="0x2D" />
+							<Item Display="5.6" Value="0x2E" />
+							<Item Display="5.7" Value="0x2F" />
+							<Item Display="6.0" Value="0x30" />
+							<Item Display="6.1" Value="0x31" />
+							<Item Display="6.2" Value="0x32" />
+							<Item Display="6.3" Value="0x33" />
+							<Item Display="6.4" Value="0x34" />
+							<Item Display="6.5" Value="0x35" />
+							<Item Display="6.6" Value="0x36" />
+							<Item Display="6.7" Value="0x37" />
+							<Item Display="7.0" Value="0x38" />
+							<Item Display="7.1" Value="0x39" />
+							<Item Display="7.2" Value="0x3A" />
+							<Item Display="7.3" Value="0x3B" />
+							<Item Display="7.4" Value="0x3C" />
+							<Item Display="7.5" Value="0x3D" />
+							<Item Display="7.6" Value="0x3E" />
+							<Item Display="7.7" Value="0x3F" />
+							<Item Display="8.0" Value="0x40" />
+							<Item Display="8.1" Value="0x41" />
+							<Item Display="8.2" Value="0x42" />
+							<Item Display="8.3" Value="0x43" />
+							<Item Display="8.4" Value="0x44" />
+							<Item Display="8.5" Value="0x45" />
+							<Item Display="8.6" Value="0x46" />
+							<Item Display="8.7" Value="0x47" />
+							<Item Display="9.0" Value="0x48" />
+							<Item Display="9.1" Value="0x49" />
+							<Item Display="9.2" Value="0x4A" />
+							<Item Display="9.3" Value="0x4B" />
+							<Item Display="9.4" Value="0x4C" />
+							<Item Display="9.5" Value="0x4D" />
+							<Item Display="9.6" Value="0x4E" />
+							<Item Display="9.7" Value="0x4F" />
+						</DropdownList>
+					</Param>
+				</Block>
+			</ModuleConfig>
+			<ModuleConfig>
+				<Block Description="板卡配置信息" Length="2" Name="AIO-211" Offset="0xFF" SegementNo="0xFF">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="AI模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0x00" />
+							<Item Display="开启" Value="0x01" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x1" Description="" DisplayManner="DROPDOWNLIST" Name="AI使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AO模块开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0x00" />
+							<Item Display="开启" Value="0x01" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="AI1配置" Length="0x4" Name="AI1" Offset="0x1A4" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="AI1通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AI1偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+							<Item Display="36" Value="0x24" />
+							<Item Display="40" Value="0x28" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AI1使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="AI2配置" Length="0x4" Name="AI2" Offset="0x1A8" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AI2通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="AI2偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+							<Item Display="36" Value="0x24" />
+							<Item Display="40" Value="0x28" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AI2使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="AI3配置" Length="0x4" Name="AI3" Offset="0x1AC" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AI3通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x08" Description="" DisplayManner="DROPDOWNLIST" Name="AI3偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+							<Item Display="36" Value="0x24" />
+							<Item Display="40" Value="0x28" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AI3使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="AI4配置" Length="0x4" Name="AI4" Offset="0x1B0" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AI4通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0C" Description="" DisplayManner="DROPDOWNLIST" Name="AI4偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+							<Item Display="36" Value="0x24" />
+							<Item Display="40" Value="0x28" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AI4使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="AI5配置" Length="0x4" Name="AI5" Offset="0x1B4" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AI5通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x10" Description="" DisplayManner="DROPDOWNLIST" Name="AI5偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+							<Item Display="36" Value="0x24" />
+							<Item Display="40" Value="0x28" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AI5使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="AI6配置" Length="0x4" Name="AI6" Offset="0x1B8" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AI6通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x14" Description="" DisplayManner="DROPDOWNLIST" Name="AI6偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+							<Item Display="36" Value="0x24" />
+							<Item Display="40" Value="0x28" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AI6使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="AI7配置" Length="0x8" Name="AI7" Offset="0x1BC" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AI7通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x18" Description="" DisplayManner="DROPDOWNLIST" Name="AI7偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+							<Item Display="36" Value="0x24" />
+							<Item Display="40" Value="0x28" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AI7使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE[5]" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="AO1配置" Length="0x04" Name="AO1" Offset="0x18C" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO1通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AO1工作模式">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="AO模式" Value="0X0D" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0X00" Description="" DisplayManner="DROPDOWNLIST" Name="AO1地址偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO1使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="AO2配置" Length="0x04" Name="AO2" Offset="0x190" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO2通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AO2工作模式">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="AO模式" Value="0X0D" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="AO2地址偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO2使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="AO3配置" Length="0x04" Name="AO3" Offset="0x194" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO3通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AO3工作模式">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="AO模式" Value="0X0D" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x08" Description="" DisplayManner="DROPDOWNLIST" Name="AO3地址偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO3使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="AO4配置" Length="0x04" Name="AO4" Offset="0x198" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO4通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AO4工作模式">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="AO模式" Value="0X0D" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0C" Description="" DisplayManner="DROPDOWNLIST" Name="AO4地址偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO4使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="AO5配置" Length="0x04" Name="AO5" Offset="0x19C" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO5通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AO5工作模式">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="AO模式" Value="0X0D" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x10" Description="" DisplayManner="DROPDOWNLIST" Name="AO5地址偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO5使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="AO6配置" Length="0x04" Name="AO6" Offset="0x1A0" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO6通道开关">
+						<DropdownList>
+							<Item Display="关闭" Value="0" />
+							<Item Display="开启" Value="1" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="AO6工作模式">
+						<DropdownList>
+							<Item Display="空闲模式" Value="0X00" />
+							<Item Display="AO模式" Value="0X0D" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x14" Description="" DisplayManner="DROPDOWNLIST" Name="AO6地址偏移">
+						<DropdownList>
+							<Item Display="12" Value="0x0C" />
+							<Item Display="16" Value="0x10" />
+							<Item Display="20" Value="0x14" />
+							<Item Display="24" Value="0x18" />
+							<Item Display="28" Value="0x1C" />
+							<Item Display="32" Value="0x20" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="AO6使用模式">
+						<DropdownList>
+							<Item Display="不使用映射区" Value="0" />
+							<Item Display="使用映射区" Value="1" />
+						</DropdownList>
+					</Param>
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[2]" Offset="0x60" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[2]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[4]" Offset="0x64" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[4]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[3]" Offset="0x62" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[3]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[0]" Offset="0x5C" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[0]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[10]" Offset="0x70" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[10]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="普通输出" Value="0x01" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[8]" Offset="0x6C" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[8]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="普通输出" Value="0x01" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[12]" Offset="0x74" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x01" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[12]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="普通输出" Value="0x01" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[9]" Offset="0x6E" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[9]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[11]" Offset="0x72" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[11]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[13]" Offset="0x76" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[13]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_B[15]" Offset="0x7A" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_B[15]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_A[11]" Offset="0x32" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_A[11]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+				<Block Description="" Length="2" Name="GPIO1_A[13]" Offset="0x36" SegementNo="0x00">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x04" Description="" DisplayManner="DROPDOWNLIST" Name="GPIO1_A[13]模式配置">
+						<DropdownList>
+							<Item Display="普通输入" Value="0x00" />
+							<Item Display="复用" Value="0x04" />
+						</DropdownList>
+					</Param>
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+				</Block>
+			</ModuleConfig>
+		</DirectModules>
+		<BusModules>
+	</BusModules>
+	</ExpendModule>
+	<Diagnostic>
+		<Block Description="CPU运行参数" Length="0x08" Name="CPU运行参数" Offset="0x00" SegementNo="0x06">
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x989680" Description="" DisplayManner="DIAGITAL" Name="CPU运行频率" />
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="CPU利用率" />
+			<Param Access="RW" DataType="BYTE[3]" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="CAN0状态" Length="0x04" Name="CAN0状态" Offset="0x08" SegementNo="0x06">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="状态">
+				<DropdownList>
+					<Item Display="总线活动正常" Value="0x00" />
+					<Item Display="总线活动存在错误" Value="0x01" />
+					<Item Display="总线关闭" Value="0x02" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE[3]" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="CAN1状态" Length="0x04" Name="CAN1状态" Offset="0x0C" SegementNo="0x06">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="状态">
+				<DropdownList>
+					<Item Display="总线活动正常" Value="0x00" />
+					<Item Display="总线活动存在错误" Value="0x01" />
+					<Item Display="总线关闭" Value="0x02" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE[3]" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="以太网状态" Length="0x04" Name="ETH0状态" Offset="0x10" SegementNo="0x06">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="连通状态">
+				<DropdownList>
+					<Item Display="未连接" Value="0x00" />
+					<Item Display="已连接" Value="0x01" />
+					<Item Display="出错" Value="0x02" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="速度模式">
+				<DropdownList>
+					<Item Display="10M半双工" Value="0x00" />
+					<Item Display="10M全双工" Value="0x01" />
+					<Item Display="100M半双工" Value="0x02" />
+					<Item Display="100M全双工" Value="0x03" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE[2]" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="以太网状态" Length="0x04" Name="ETH1状态" Offset="0x14" SegementNo="0x06">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="连通状态">
+				<DropdownList>
+					<Item Display="未连接" Value="0x00" />
+					<Item Display="已连接" Value="0x01" />
+					<Item Display="出错" Value="0x02" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="速度模式">
+				<DropdownList>
+					<Item Display="10M半双工" Value="0x00" />
+					<Item Display="10M全双工" Value="0x01" />
+					<Item Display="100M半双工" Value="0x02" />
+					<Item Display="100M全双工" Value="0x03" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE[2]" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="MODBUS状态" Length="0x04" Name="MODBUS状态" Offset="0x18" SegementNo="0x06">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="状态">
+				<DropdownList>
+					<Item Display="正常" Value="0x00" />
+					<Item Display="错误" Value="0x01" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="模式">
+				<DropdownList>
+					<Item Display="UNDEFINED" Value="0x00" />
+					<Item Display="MODBUS-RTU" Value="0x01" />
+					<Item Display="MODBUS-ASCII" Value="0x02" />
+					<Item Display="MODBUS-TCP" Value="0x03" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE[2]" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="用户程序状态" Length="0x0C" Name="用户程序状态" Offset="0x1C" SegementNo="0x06">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="组态状态">
+				<DropdownList>
+					<Item Display="未组态" Value="0x00" />
+					<Item Display="已组态" Value="0x01" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="任务数量" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="DS数量" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="CS数量" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="US数量" />
+			<Param Access="RW" DataType="WORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="GS数量" />
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="执行状态">
+				<DropdownList>
+					<Item Display="未启动" Value="0x00" />
+					<Item Display="运行中" Value="0x01" />
+					<Item Display="暂停" Value="0x02" />
+					<Item Display="出错" Value="0x03" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="逻辑运算单元状态" Length="0x04" Name="逻辑运算单元状态" Offset="0x28" SegementNo="0x06">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="状态">
+				<DropdownList>
+					<Item Display="未启动" Value="0x00" />
+					<Item Display="空闲" Value="0x01" />
+					<Item Display="运行中" Value="0x02" />
+					<Item Display="暂停" Value="0x03" />
+					<Item Display="运行出错" Value="0x04" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="错误码">
+				<DropdownList>
+					<Item Display="正常" Value="0x00" />
+					<Item Display="指令不存在" Value="0x01" />
+					<Item Display="指令不支持" Value="0x02" />
+					<Item Display="除数为0" Value="0x03" />
+					<Item Display="数据类型错误" Value="0x04" />
+					<Item Display="编址寻址溢出" Value="0x05" />
+					<Item Display="调用硬功能块超时" Value="0x06" />
+					<Item Display="指令中程序段段号错误" Value="0x07" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="控制算法库返回码" />
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+		<Block Description="运动控制单元状态" Length="0x04" Name="运动控制单元状态" Offset="0x2C" SegementNo="0x06">
+			<Param Access="RW" DataType="BYTE" DefaultValue="0x00" Description="" DisplayManner="DROPDOWNLIST" Name="状态">
+				<DropdownList>
+					<Item Display="未启动" Value="0x00" />
+					<Item Display="空闲" Value="0x01" />
+					<Item Display="运行中" Value="0x02" />
+					<Item Display="暂停" Value="0x03" />
+					<Item Display="急停" Value="0x04" />
+					<Item Display="报警" Value="0x05" />
+				</DropdownList>
+			</Param>
+			<Param Access="RW" DataType="BYTE[3]" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="保留" />
+		</Block>
+	</Diagnostic>
+</DeviceDescription>
