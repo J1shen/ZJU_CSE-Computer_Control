@@ -24,7 +24,6 @@ PROGRAM program1
     MOVE_STRING30_ENO : BOOL;
     MOVE_STRING29_ENO : BOOL;
     MOVE_STRING33_ENO : BOOL;
-    MOVE_STRING77_ENO : BOOL;
     COMPARE_STRING204_ENO : BOOL;
     COMPARE_STRING204_OUT : BOOL;
     COMPARE_STRING211_ENO : BOOL;
@@ -34,9 +33,9 @@ PROGRAM program1
     MOVE_TIME236_ENO : BOOL;
     MOVE_TIME239_ENO : BOOL;
     MOVE_TIME242_ENO : BOOL;
-    MOVE_STRING229_ENO : BOOL;
-    ADD_REAL19_ENO : BOOL;
-    SUB_REAL51_ENO : BOOL;
+    STRING_TO_UDINT601_ENO : BOOL;
+    MOVE_REAL596_ENO : BOOL;
+    MOVE_REAL19_ENO : BOOL;
     TIME_TO_REAL469_ENO : BOOL;
     TIME_TO_REAL472_ENO : BOOL;
     DIV_REAL478_ENO : BOOL;
@@ -47,15 +46,15 @@ PROGRAM program1
     temp_branch_var_3 : BOOL;
     tf : REAL;
     Temp : REAL;
-    Duty1 : REAL := 20.0;
+    Duty1 : REAL := 15.0;
     heat_timereal : REAL;
     T_TIMEreal : REAL;
     UDINT_TO_REAL41_OUT : REAL;
     MUL_REAL42_OUT : REAL;
     SUB_REAL43_OUT : REAL;
     MUL_REAL44_OUT : REAL;
-    ADD_REAL19_OUT : REAL;
-    SUB_REAL51_OUT : REAL;
+    MOVE_REAL596_OUT : REAL;
+    MOVE_REAL19_OUT : REAL;
     TIME_TO_REAL469_OUT : REAL;
     TIME_TO_REAL472_OUT : REAL;
     DIV_REAL478_OUT : REAL;
@@ -64,10 +63,9 @@ PROGRAM program1
     MOVE_STRING30_OUT : STRING;
     MOVE_STRING29_OUT : STRING;
     MOVE_STRING33_OUT : STRING;
-    MOVE_STRING77_OUT : STRING;
-    MOVE_STRING229_OUT : STRING;
     heat_time : TIME := t#0.5s;
     T_HEAT : TIME;
+    T_GD0 : TIME;
     T_Motor : TIME;
     T_After : TIME;
     T_Push : TIME;
@@ -79,6 +77,7 @@ PROGRAM program1
     MOVE_TIME242_OUT : TIME;
     Mode : BYTE := 2;
     Freq1 : UDINT := 100;
+    STRING_TO_UDINT601_OUT : UDINT;
     REAL_TO_UDINT516_OUT : UDINT;
     GD0 : bool := 0;
     GD1 : bool := 0;
@@ -96,6 +95,7 @@ PROGRAM program1
     TON_inst9 : TON;
     TOF_inst1 : TOF;
     TOF_inst2 : TOF;
+    TON_inst7 : TOF;
     R_TRIG1 : R_TRIG;
     R_TRIG2 : R_TRIG;
     R_TRIG3 : R_TRIG;
@@ -105,12 +105,14 @@ PROGRAM program1
     F_TRIG2 : F_TRIG;
   END_VAR
   VAR
+    type_final AT %MQD1 : UDINT;
     T_percentage AT %MQD0 : UDINT;
     AIO211_AI_CH1 AT %MID0 : UDINT;
     forward AT %QX0.8 : BOOL;
     AMswitch AT %QX0.6 : BOOL;
     Feng AT %QX0.7 : BOOL;
     trigger AT %QX0.5 : BOOL;
+    DI211_CH5 AT %IX0.4 : BOOL;
     DI211_CH6 AT %IX0.5 : BOOL;
     DI211_CH7 AT %IX0.6 : BOOL;
     DI211_CH8 AT %IX0.7 : BOOL;
@@ -122,7 +124,6 @@ PROGRAM program1
     DO211_CH2 AT %QX0.1 : BOOL;
     DO211_CH3 AT %QX0.2 : BOOL;
     DO211_CH4 AT %QX0.3 : BOOL;
-    DO211_CH5 AT %QX0.4 : BOOL;
   END_VAR
 
   UDINT_TO_REAL41_OUT := UDINT_TO_REAL(EN := run, IN := AIO211_AI_CH1, ENO => UDINT_TO_REAL41_ENO);
@@ -144,22 +145,21 @@ PROGRAM program1
   temp_branch_var_1 := run;
   temp_branch_var_2 := A_M AND temp_branch_var_1;
   IN1 := forward AND NOT(A_M) AND temp_branch_var_1 OR (NOT(start) OR NOT(state_heat) AND start OR state_after AND start) AND temp_branch_var_2;
-  TON_inst6(IN := state_after AND start AND run, PT := T#0.3s);
+  TON_inst6(IN := GD0 AND run, PT := T#100ms);
     T_Push := TON_inst6.ET;
   push_after := TON_inst6.Q;
-  temp_branch_var_1 := run;
   R_TRIG1(CLK := push_after);
-  IF NOT(choose_3) AND NOT(choose_2) AND choose_1 AND R_TRIG1.Q AND A_M AND temp_branch_var_1 THEN
+  IF NOT(choose_3) AND NOT(choose_2) AND choose_1 AND R_TRIG1.Q AND A_M AND run THEN
     DO211_CH1 := TRUE; (*set*)
   END_IF;
-  temp_branch_var_2 := NOT(A_M) AND temp_branch_var_1;
+  temp_branch_var_2 := NOT(A_M) AND run;
   IF NOT(trigger) AND temp_branch_var_2 THEN
     DO211_CH1 := FALSE; (*reset*)
   END_IF;
   IF trigger AND temp_branch_var_2 THEN
     DO211_CH1 := TRUE; (*set*)
   END_IF;
-  TON_inst9(IN := DO211_CH1 AND A_M AND temp_branch_var_1, PT := T#2s);
+  TON_inst9(IN := DO211_CH1 AND A_M AND run, PT := T#2s);
     temp1 := TON_inst9.ET;
   IF TON_inst9.Q THEN
     DO211_CH1 := FALSE; (*reset*)
@@ -170,7 +170,7 @@ PROGRAM program1
     T_Motor := TON_inst1.ET;
     state_heat := TON_inst1.Q;
   temp_branch_var_1 := start AND run;
-  MOVE_STRING30_OUT := MOVE_STRING(EN := (GD3 OR is_sort1) AND temp_branch_var_1, IN := '3', ENO => MOVE_STRING30_ENO);
+  MOVE_STRING30_OUT := MOVE_STRING(EN := (GD2 OR is_sort1) AND temp_branch_var_1, IN := '3', ENO => MOVE_STRING30_ENO);
   IF MOVE_STRING30_ENO THEN
       types := MOVE_STRING30_OUT;
   END_IF;
@@ -180,15 +180,11 @@ PROGRAM program1
       types := MOVE_STRING29_OUT;
   END_IF;
   temp_branch_var_1 := start AND run;
-  MOVE_STRING33_OUT := MOVE_STRING(EN := (GD2 OR is_sort2) AND temp_branch_var_1, IN := '2', ENO => MOVE_STRING33_ENO);
+  MOVE_STRING33_OUT := MOVE_STRING(EN := (GD3 OR is_sort2) AND temp_branch_var_1, IN := '2', ENO => MOVE_STRING33_ENO);
   IF MOVE_STRING33_ENO THEN
       types := MOVE_STRING33_OUT;
   END_IF;
   is_sort2 := MOVE_STRING33_ENO;
-  MOVE_STRING77_OUT := MOVE_STRING(EN := NOT(is_sort2) AND temp_branch_var_1, IN := '1', ENO => MOVE_STRING77_ENO);
-  IF MOVE_STRING77_ENO THEN
-      types := MOVE_STRING77_OUT;
-  END_IF;
   temp_branch_var_1 := start AND run;
   COMPARE_STRING204_OUT := COMPARE_STRING(EN := temp_branch_var_1, IN1 := types, IN2 := '1', ENO => COMPARE_STRING204_ENO);
   IF COMPARE_STRING204_ENO THEN
@@ -202,15 +198,15 @@ PROGRAM program1
   IF COMPARE_STRING216_ENO THEN
       choose_3 := COMPARE_STRING216_OUT;
   END_IF;
-  MOVE_TIME236_OUT := MOVE_TIME(EN := choose_1 AND temp_branch_var_1, IN := T#5s, ENO => MOVE_TIME236_ENO);
+  MOVE_TIME236_OUT := MOVE_TIME(EN := choose_1 AND temp_branch_var_1, IN := T#60s, ENO => MOVE_TIME236_ENO);
   IF MOVE_TIME236_ENO THEN
       heat_time := MOVE_TIME236_OUT;
   END_IF;
-  MOVE_TIME239_OUT := MOVE_TIME(EN := choose_2 AND temp_branch_var_1, IN := T#2s, ENO => MOVE_TIME239_ENO);
-  MOVE_TIME242_OUT := MOVE_TIME(EN := choose_3 AND temp_branch_var_1, IN := T#3s, ENO => MOVE_TIME242_ENO);
-  MOVE_STRING229_OUT := MOVE_STRING(EN := MOVE_TIME236_ENO OR MOVE_TIME239_ENO OR MOVE_TIME242_ENO, IN := '0', ENO => MOVE_STRING229_ENO);
-  IF MOVE_STRING229_ENO THEN
-      types := MOVE_STRING229_OUT;
+  MOVE_TIME239_OUT := MOVE_TIME(EN := choose_2 AND temp_branch_var_1, IN := T#60s, ENO => MOVE_TIME239_ENO);
+  MOVE_TIME242_OUT := MOVE_TIME(EN := choose_3 AND temp_branch_var_1, IN := T#60s, ENO => MOVE_TIME242_ENO);
+  STRING_TO_UDINT601_OUT := STRING_TO_UDINT(EN := MOVE_TIME236_ENO OR MOVE_TIME239_ENO OR MOVE_TIME242_ENO, IN := types, ENO => STRING_TO_UDINT601_ENO);
+  IF STRING_TO_UDINT601_ENO THEN
+      type_final := STRING_TO_UDINT601_OUT;
   END_IF;
   IF MOVE_TIME239_ENO THEN
       heat_time := MOVE_TIME239_OUT;
@@ -226,7 +222,7 @@ PROGRAM program1
     state_fan := TOF_inst2.Q;
   DO211_CH2 := state_fan AND temp_branch_var_2;
   F_TRIG1(CLK := state_fan);
-  TOF_inst1(IN := F_TRIG1.Q AND temp_branch_var_2, PT := T#0.5s);
+  TOF_inst1(IN := F_TRIG1.Q AND temp_branch_var_2, PT := T#0.3s);
     T_After := TOF_inst1.ET;
     state_after := TOF_inst1.Q;
   F_TRIG2(CLK := state_after);
@@ -244,16 +240,16 @@ PROGRAM program1
   PIPO_PWMB_inst1(EN := temp_branch_var_1, Channel := 0, IN := IN1, Duty := Duty1, Freq := Freq1);
   temp_branch_var_1 := A_M AND run;
   R_TRIG4(CLK := DI211_CH7);
-  ADD_REAL19_OUT := ADD_REAL(EN := R_TRIG4.Q AND temp_branch_var_1, IN1 := Duty1, IN2 := 0.0, ENO => ADD_REAL19_ENO);
-  IF ADD_REAL19_ENO THEN
-      Duty1 := ADD_REAL19_OUT;
+  MOVE_REAL596_OUT := MOVE_REAL(EN := R_TRIG4.Q AND temp_branch_var_1, IN := 15.0, ENO => MOVE_REAL596_ENO);
+  IF MOVE_REAL596_ENO THEN
+      Duty1 := MOVE_REAL596_OUT;
   END_IF;
   R_TRIG5(CLK := DI211_CH8);
-  SUB_REAL51_OUT := SUB_REAL(EN := R_TRIG5.Q AND temp_branch_var_1, IN1 := Duty1, IN2 := 0.0, ENO => SUB_REAL51_ENO);
-  IF SUB_REAL51_ENO THEN
-      Duty1 := SUB_REAL51_OUT;
+  MOVE_REAL19_OUT := MOVE_REAL(EN := R_TRIG5.Q AND temp_branch_var_1, IN := 20.0, ENO => MOVE_REAL19_ENO);
+  IF MOVE_REAL19_ENO THEN
+      Duty1 := MOVE_REAL19_OUT;
   END_IF;
-  TON_inst2(IN := GD0 AND temp_branch_var_1, PT := T#50ms);
+  TON_inst2(IN := GD0 AND temp_branch_var_1, PT := T#1s);
   IF TON_inst2.Q THEN
     DI211_CH7 := FALSE; (*reset*)
   END_IF;

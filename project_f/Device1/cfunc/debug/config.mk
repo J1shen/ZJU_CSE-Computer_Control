@@ -8,13 +8,13 @@
 #	Íâ²¿ÒÀÀµÏî		PROJECT_EXTOBJS
 
 #¹¤³ÌÂ·¾¶
-PROJECT_DIR 	:= /cygdrive/C/Users/10037/Desktop/project_6.6/project_f(3)/Device1/cfunc
+PROJECT_DIR 	:= /cygdrive/D/study3_2/computer control/å¤§ä½œä¸š/project_f(1) (2)/project_f(1)/Device1/cfunc
 
 #C¿âÎÄ¼þ¹¤³ÌÂ·¾¶
-C_LIB_DIR 	:= /cygdrive/E/ConfDesv3.0.0.17010_alpha/SUPCON/CMCSupport/cygwin
+C_LIB_DIR 	:= /cygdrive/C/PROGRA~2/SUPCON/CMCSupport/cygwin
 
 #¹Ì»¯¹¦ÄÜ¿éÂ·¾¶
-USER_OBJS_DIR	:= /cygdrive/E/ConfDesv3.0.0.17010_alpha/SUPCON/CMCSupport/OBJ
+USER_OBJS_DIR	:= /cygdrive/C/PROGRA~2/SUPCON/CMCSupport/OBJ
 
 
 #CÓïÑÔ¹¦ÄÜ¿é.c±àÒëÐÅÏ¢

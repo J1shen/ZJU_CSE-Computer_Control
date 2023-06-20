@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from functools import partial
 from PyQt5.QtCore import QTimer
 import time 
+import serial
 import Ui_Menu
 from Ui_Menu import Ui_MainWindow
 import modbus
@@ -18,6 +19,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.master = master
 
     def getstate(self):
+                
         state = modbus.readDiscrete(self.master)
         if state[0] == 0:
             ui.stateSensor1.setText('Non-detected')
@@ -38,6 +40,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         Percent = modbus.readTime(self.master)
         ui.Heating.setValue(Percent)
+        
+        Object = modbus.readObject(self.master)
+        if Object == 1:
+            ui.label_type.setText('木块')
+        elif Object == 2:
+            ui.label_type.setText('磁性')
+        elif Object == 3:
+            ui.label_type.setText('非磁性')   
+        # object_state = str(Object)
+        # val = ser.write(object_state.encode('utf-8'))
+        # #ser.write(发送的数据需要进行编码.encode('utf-8'))
+        # time.sleep(0.1)
+        # val2 = ser.readline().decode('utf-8')
+        # print(val2)
+
+
 
 def start(ui,master):
     ui.stateRun.setText('Start')
@@ -80,6 +98,7 @@ def Trigger(ui,master):
 
 
 if __name__ == '__main__':
+    # ser = serial.Serial('COM5',9600,timeout=1)
     master = modbus.mod_init()
     app = QApplication(sys.argv)
     MainWindow = MainWindow(master)

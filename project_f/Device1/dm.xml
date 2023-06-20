@@ -400,12 +400,12 @@
 		</Block>
 		<Block Description="下位机接入的直插型板卡GPIO配置信息" Length="0x40" Name="直插型板卡GPIO配置信息" Offset="0x230" SegementNo="0x00">
 			<Param Access="RW" DataType="DWORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="MD-211配置信息" />
-			<Param Access="RW" DataType="DWORD" DefaultValue="0x83f80000" Description="" DisplayManner="DIAGITAL" Name="DI-211配置信息" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0x87f80000" Description="" DisplayManner="DIAGITAL" Name="DI-211配置信息" />
 			<Param Access="RW" DataType="DWORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="DI-212配置信息" />
 			<Param Access="RW" DataType="DWORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="PI-211配置信息" />
 			<Param Access="RW" DataType="DWORD" DefaultValue="0xc0000000" Description="" DisplayManner="DIAGITAL" Name="PO-211配置信息" />
 			<Param Access="RW" DataType="DWORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="SC-211配置信息" />
-			<Param Access="RW" DataType="DWORD" DefaultValue="0xfc000000" Description="" DisplayManner="DIAGITAL" Name="DO-211配置信息" />
+			<Param Access="RW" DataType="DWORD" DefaultValue="0xf8000000" Description="" DisplayManner="DIAGITAL" Name="DO-211配置信息" />
 			<Param Access="RW" DataType="DWORD" DefaultValue="0xcfe00000" Description="" DisplayManner="DIAGITAL" Name="AIO-211配置信息" />
 			<Param Access="RW" DataType="DWORD" DefaultValue="0x00" Description="" DisplayManner="DIAGITAL" Name="AI-231配置信息" />
 		</Block>
@@ -966,7 +966,7 @@
 					</Param>
 				</Block>
 				<Block Description="" Length="2" Name="DI211_CH5" Offset="0x26" SegementNo="0x00">
-					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH5通道配置">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x2" Description="" DisplayManner="DROPDOWNLIST" Name="DI211_CH5通道配置">
 						<DropdownList>
 							<Item Display="失能通道" Value="0x00" />
 							<Item Display="使能通道" Value="0x02" />
@@ -2080,7 +2080,7 @@
 					</Param>
 				</Block>
 				<Block Description="" Length="2" Name="DO211_CH5" Offset="0x178" SegementNo="0x00">
-					<Param Access="RW" DataType="BYTE" DefaultValue="0x3" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH5通道配置">
+					<Param Access="RW" DataType="BYTE" DefaultValue="0x0" Description="" DisplayManner="DROPDOWNLIST" Name="DO211_CH5通道配置">
 						<DropdownList>
 							<Item Display="失能通道" Value="0x00" />
 							<Item Display="使能通道" Value="0x03" />

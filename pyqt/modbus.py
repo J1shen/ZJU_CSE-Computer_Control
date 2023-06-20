@@ -26,6 +26,11 @@ def readTime(master):
 
     return time[0]
 
+def readObject(master):
+    object = master.execute(1, cst.READ_HOLDING_REGISTERS, 2, 1)
+
+    return object[0]
+
 def write_data(master,starting_address, data, slave):
         try:
             master.execute(slave, cst.WRITE_SINGLE_COIL, starting_address, output_value=data)

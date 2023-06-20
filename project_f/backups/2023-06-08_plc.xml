@@ -7,7 +7,7 @@
               contentDescription=""/>
   <contentHeader name="Project9"
                  version=""
-                 modificationDateTime="2023-06-13T21:41:40"
+                 modificationDateTime="2023-06-08T08:26:44"
                  author="">
     <coordinateInfo>
       <fbd>
@@ -31,7 +31,7 @@
               creationDateTime="2023-05-29T13:55:33"
               contentDescription=""/>
   <contentHeader name="Device1"
-                 modificationDateTime="2023-06-13T21:41:40">
+                 modificationDateTime="2023-06-08T08:26:44">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -142,15 +142,6 @@
 <![CDATA[1木块2磁性3非磁性]]>
               </documentation>
             </variable>
-          </localVars>
-          <localVars>
-            <variable name="type_final" address="%MQD1">
-              <type>
-                <UDINT/>
-              </type>
-            </variable>
-          </localVars>
-          <localVars>
             <variable name="is_sort1">
               <type>
                 <BOOL/>
@@ -182,11 +173,6 @@
               </documentation>
             </variable>
             <variable name="T_HEAT">
-              <type>
-                <TIME/>
-              </type>
-            </variable>
-            <variable name="T_GD0">
               <type>
                 <TIME/>
               </type>
@@ -288,7 +274,7 @@
                 <REAL/>
               </type>
               <initialValue>
-                <simpleValue value="15.0"/>
+                <simpleValue value="20.0"/>
               </initialValue>
             </variable>
             <variable name="GD0">
@@ -457,11 +443,6 @@
             <variable name="TON_inst9">
               <type>
                 <derived name="TON"/>
-              </type>
-            </variable>
-            <variable name="TON_inst7">
-              <type>
-                <derived name="TOF"/>
               </type>
             </variable>
           </localVars>
@@ -653,7 +634,7 @@
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
-              <line x="0" y="4680"/>
+              <line x="0" y="4740"/>
             </leftPowerRail>
             <comment localId="18" height="20" width="800" type="1">
               <position x="50" y="3660"/>
@@ -661,6 +642,65 @@
 <![CDATA[注释]]>
               </content>
             </comment>
+            <block localId="19" width="70" height="120" typeName="ADD_REAL" instanceName="">
+              <position x="396" y="3710"/>
+              <inputVariables>
+                <variable formalParameter="EN" type="BOOL">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="27">
+                      <position x="396" y="3760"/>
+                      <position x="293" y="3760"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN1" type="REAL">
+                  <connectionPointIn>
+                    <relPosition x="0" y="80"/>
+                    <connection refLocalId="22">
+                      <position x="396" y="3790"/>
+                      <position x="376" y="3790"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2" type="REAL">
+                  <connectionPointIn>
+                    <relPosition x="0" y="110"/>
+                    <connection refLocalId="23">
+                      <position x="396" y="3820"/>
+                      <position x="376" y="3820"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO" type="BOOL">
+                  <connectionPointOut>
+                    <relPosition x="70" y="50"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT" type="REAL">
+                  <connectionPointOut>
+                    <relPosition x="70" y="80"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="22" height="20" width="33" executionOrderId="0">
+              <position x="343" y="3780"/>
+              <connectionPointOut>
+                <relPosition x="33" y="10"/>
+              </connectionPointOut>
+              <expression>Duty1</expression>
+            </inVariable>
+            <inVariable localId="23" height="20" width="17" executionOrderId="0">
+              <position x="359" y="3810"/>
+              <connectionPointOut>
+                <relPosition x="17" y="10"/>
+              </connectionPointOut>
+              <expression>0.0</expression>
+            </inVariable>
             <contact localId="27" height="15" width="71" edge="rising">
               <position x="242" y="3750"/>
               <connectionPointIn>
@@ -676,6 +716,17 @@
               <variable>DI211_CH7</variable>
               <variable1></variable1>
             </contact>
+            <outVariable localId="50" height="20" width="33" executionOrderId="0">
+              <position x="486" y="3780"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="19" formalParameter="OUT">
+                  <position x="486" y="3790"/>
+                  <position x="466" y="3790"/>
+                </connection>
+              </connectionPointIn>
+              <expression>Duty1</expression>
+            </outVariable>
             <contact localId="146" height="15" width="31" comment="总开关" branch_id="1">
               <position x="90" y="3340"/>
               <connectionPointIn>
@@ -1174,6 +1225,72 @@
               <variable>choose_1</variable>
               <variable1></variable1>
             </contact>
+            <block localId="229" width="97" height="90" typeName="MOVE_STRING" instanceName="">
+              <position x="628" y="2330"/>
+              <inputVariables>
+                <variable formalParameter="EN" type="BOOL">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="236" formalParameter="ENO">
+                      <position x="628" y="2380"/>
+                      <position x="460" y="2380"/>
+                    </connection>
+                    <connection refLocalId="239" formalParameter="ENO">
+                      <position x="628" y="2380"/>
+                      <position x="565" y="2380"/>
+                      <position x="565" y="2510"/>
+                      <position x="460" y="2510"/>
+                    </connection>
+                    <connection refLocalId="242" formalParameter="ENO">
+                      <position x="628" y="2380"/>
+                      <position x="565" y="2380"/>
+                      <position x="565" y="2640"/>
+                      <position x="460" y="2640"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN" type="STRING">
+                  <connectionPointIn>
+                    <relPosition x="0" y="80"/>
+                    <connection refLocalId="230">
+                      <position x="628" y="2410"/>
+                      <position x="608" y="2410"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO" type="BOOL">
+                  <connectionPointOut>
+                    <relPosition x="97" y="50"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT" type="STRING">
+                  <connectionPointOut>
+                    <relPosition x="97" y="80"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="230" height="20" width="13" executionOrderId="0">
+              <position x="595" y="2400"/>
+              <connectionPointOut>
+                <relPosition x="13" y="10"/>
+              </connectionPointOut>
+              <expression>'0'</expression>
+            </inVariable>
+            <outVariable localId="231" height="20" width="31" executionOrderId="0" comment="1木块2磁性3非磁性">
+              <position x="745" y="2400"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="229" formalParameter="OUT">
+                  <position x="745" y="2410"/>
+                  <position x="725" y="2410"/>
+                </connection>
+              </connectionPointIn>
+              <expression>types</expression>
+            </outVariable>
             <contact localId="232" height="15" width="58" comment="选择磁性加热时间">
               <position x="242" y="2500"/>
               <connectionPointIn>
@@ -1209,13 +1326,13 @@
               <variable1></variable1>
             </contact>
             <block localId="236" width="82" height="90" typeName="MOVE_TIME" instanceName="">
-              <position x="385" y="2330"/>
+              <position x="378" y="2330"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="223">
-                      <position x="385" y="2380"/>
+                      <position x="378" y="2380"/>
                       <position x="286" y="2380"/>
                     </connection>
                   </connectionPointIn>
@@ -1224,8 +1341,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="237">
-                      <position x="385" y="2410"/>
-                      <position x="365" y="2410"/>
+                      <position x="378" y="2410"/>
+                      <position x="358" y="2410"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1244,32 +1361,32 @@
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="237" height="20" width="35" executionOrderId="0">
+            <inVariable localId="237" height="20" width="28" executionOrderId="0">
               <position x="330" y="2400"/>
               <connectionPointOut>
-                <relPosition x="35" y="10"/>
+                <relPosition x="28" y="10"/>
               </connectionPointOut>
-              <expression>T#60s</expression>
+              <expression>T#5s</expression>
             </inVariable>
             <outVariable localId="238" height="20" width="55" executionOrderId="0" comment="加热时间">
-              <position x="487" y="2400"/>
+              <position x="480" y="2400"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="236" formalParameter="OUT">
-                  <position x="487" y="2410"/>
-                  <position x="467" y="2410"/>
+                  <position x="480" y="2410"/>
+                  <position x="460" y="2410"/>
                 </connection>
               </connectionPointIn>
               <expression>heat_time</expression>
             </outVariable>
             <block localId="239" width="82" height="90" typeName="MOVE_TIME" instanceName="">
-              <position x="385" y="2460"/>
+              <position x="378" y="2460"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="232">
-                      <position x="385" y="2510"/>
+                      <position x="378" y="2510"/>
                       <position x="286" y="2510"/>
                     </connection>
                   </connectionPointIn>
@@ -1278,8 +1395,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="240">
-                      <position x="385" y="2540"/>
-                      <position x="365" y="2540"/>
+                      <position x="378" y="2540"/>
+                      <position x="358" y="2540"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1298,32 +1415,32 @@
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="240" height="20" width="35" executionOrderId="0">
+            <inVariable localId="240" height="20" width="28" executionOrderId="0">
               <position x="330" y="2530"/>
               <connectionPointOut>
-                <relPosition x="35" y="10"/>
+                <relPosition x="28" y="10"/>
               </connectionPointOut>
-              <expression>T#60s</expression>
+              <expression>T#2s</expression>
             </inVariable>
             <outVariable localId="241" height="20" width="55" executionOrderId="0" comment="加热时间">
-              <position x="487" y="2530"/>
+              <position x="480" y="2530"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="239" formalParameter="OUT">
-                  <position x="487" y="2540"/>
-                  <position x="467" y="2540"/>
+                  <position x="480" y="2540"/>
+                  <position x="460" y="2540"/>
                 </connection>
               </connectionPointIn>
               <expression>heat_time</expression>
             </outVariable>
             <block localId="242" width="82" height="90" typeName="MOVE_TIME" instanceName="">
-              <position x="385" y="2590"/>
+              <position x="378" y="2590"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="233">
-                      <position x="385" y="2640"/>
+                      <position x="378" y="2640"/>
                       <position x="286" y="2640"/>
                     </connection>
                   </connectionPointIn>
@@ -1332,8 +1449,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="243">
-                      <position x="385" y="2670"/>
-                      <position x="365" y="2670"/>
+                      <position x="378" y="2670"/>
+                      <position x="358" y="2670"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1352,20 +1469,20 @@
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="243" height="20" width="35" executionOrderId="0">
+            <inVariable localId="243" height="20" width="28" executionOrderId="0">
               <position x="330" y="2660"/>
               <connectionPointOut>
-                <relPosition x="35" y="10"/>
+                <relPosition x="28" y="10"/>
               </connectionPointOut>
-              <expression>T#60s</expression>
+              <expression>T#3s</expression>
             </inVariable>
             <outVariable localId="244" height="20" width="55" executionOrderId="0" comment="加热时间">
-              <position x="487" y="2660"/>
+              <position x="480" y="2660"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="242" formalParameter="OUT">
-                  <position x="487" y="2670"/>
-                  <position x="467" y="2670"/>
+                  <position x="480" y="2670"/>
+                  <position x="460" y="2670"/>
                 </connection>
               </connectionPointIn>
               <expression>heat_time</expression>
@@ -1394,32 +1511,32 @@
 <![CDATA[注释]]>
               </content>
             </comment>
-            <contact localId="279" height="15" width="34" comment="开启流程" branch_id="2">
-              <position x="245" y="2790"/>
+            <contact localId="279" height="15" width="31" comment="开启流程" branch_id="2">
+              <position x="242" y="2790"/>
               <connectionPointIn>
-                <relPosition x="1" y="10"/>
+                <relPosition x="0" y="10"/>
                 <connection refLocalId="539">
-                  <position x="246" y="2800"/>
-                  <position x="213" y="2800"/>
+                  <position x="242" y="2800"/>
+                  <position x="212" y="2800"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="32" y="10"/>
+                <relPosition x="31" y="10"/>
               </connectionPointOut>
               <variable>start</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="280" height="15" width="78" edge="rising">
-              <position x="339" y="2790"/>
+            <contact localId="280" height="15" width="63" edge="rising">
+              <position x="333" y="2790"/>
               <connectionPointIn>
-                <relPosition x="23" y="10"/>
+                <relPosition x="16" y="10"/>
                 <connection refLocalId="279">
-                  <position x="362" y="2800"/>
-                  <position x="277" y="2800"/>
+                  <position x="349" y="2800"/>
+                  <position x="273" y="2800"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="54" y="10"/>
+                <relPosition x="47" y="10"/>
               </connectionPointOut>
               <variable>state_heat</variable>
               <variable1></variable1>
@@ -1471,13 +1588,58 @@
               <variable>run</variable>
               <variable1></variable1>
             </contact>
+            <block localId="51" width="68" height="120" typeName="SUB_REAL" instanceName="" executionOrderId="0">
+              <position x="396" y="3870"/>
+              <inputVariables>
+                <variable formalParameter="EN" type="BOOL">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="52">
+                      <position x="396" y="3920"/>
+                      <position x="293" y="3920"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN1" type="REAL">
+                  <connectionPointIn>
+                    <relPosition x="0" y="80"/>
+                    <connection refLocalId="53">
+                      <position x="396" y="3950"/>
+                      <position x="376" y="3950"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2" type="REAL">
+                  <connectionPointIn>
+                    <relPosition x="0" y="110"/>
+                    <connection refLocalId="70">
+                      <position x="396" y="3980"/>
+                      <position x="376" y="3980"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO" type="BOOL">
+                  <connectionPointOut>
+                    <relPosition x="68" y="50"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT" type="REAL">
+                  <connectionPointOut>
+                    <relPosition x="68" y="80"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
             <contact localId="52" height="15" width="71" executionOrderId="0" edge="rising">
-              <position x="242" y="3880"/>
+              <position x="242" y="3910"/>
               <connectionPointIn>
                 <relPosition x="20" y="10"/>
                 <connection refLocalId="348">
-                  <position x="262" y="3890"/>
-                  <position x="212" y="3890"/>
+                  <position x="262" y="3920"/>
+                  <position x="212" y="3920"/>
                   <position x="212" y="3760"/>
                   <position x="182" y="3760"/>
                 </connection>
@@ -1488,15 +1650,40 @@
               <variable>DI211_CH8</variable>
               <variable1></variable1>
             </contact>
+            <inVariable localId="53" height="20" width="33" executionOrderId="0">
+              <position x="343" y="3940"/>
+              <connectionPointOut>
+                <relPosition x="33" y="10"/>
+              </connectionPointOut>
+              <expression>Duty1</expression>
+            </inVariable>
+            <outVariable localId="54" height="20" width="33" executionOrderId="0">
+              <position x="484" y="3940"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="51" formalParameter="OUT">
+                  <position x="484" y="3950"/>
+                  <position x="464" y="3950"/>
+                </connection>
+              </connectionPointIn>
+              <expression>Duty1</expression>
+            </outVariable>
+            <inVariable localId="70" height="20" width="17" executionOrderId="0">
+              <position x="359" y="3970"/>
+              <connectionPointOut>
+                <relPosition x="17" y="10"/>
+              </connectionPointOut>
+              <expression>0.0</expression>
+            </inVariable>
             <block localId="20" width="50" height="90" typeName="TON" instanceName="TON_inst2" executionOrderId="0">
-              <position x="351" y="3970"/>
+              <position x="369" y="4030"/>
               <inputVariables>
                 <variable formalParameter="IN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="21">
-                      <position x="351" y="4020"/>
-                      <position x="273" y="4020"/>
+                      <position x="369" y="4080"/>
+                      <position x="273" y="4080"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1504,8 +1691,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="25">
-                      <position x="351" y="4050"/>
-                      <position x="331" y="4050"/>
+                      <position x="369" y="4110"/>
+                      <position x="349" y="4110"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1525,12 +1712,12 @@
               </outputVariables>
             </block>
             <contact localId="21" height="15" width="31" executionOrderId="0" comment="光电式0">
-              <position x="242" y="4010"/>
+              <position x="242" y="4070"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="348">
-                  <position x="242" y="4020"/>
-                  <position x="212" y="4020"/>
+                  <position x="242" y="4080"/>
+                  <position x="212" y="4080"/>
                   <position x="212" y="3760"/>
                   <position x="182" y="3760"/>
                 </connection>
@@ -1542,12 +1729,12 @@
               <variable1></variable1>
             </contact>
             <coil localId="24" height="15" width="71" executionOrderId="0" storage="reset">
-              <position x="441" y="4010"/>
+              <position x="459" y="4070"/>
               <connectionPointIn>
                 <relPosition x="20" y="10"/>
                 <connection refLocalId="20" formalParameter="Q">
-                  <position x="461" y="4020"/>
-                  <position x="401" y="4020"/>
+                  <position x="479" y="4080"/>
+                  <position x="419" y="4080"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1555,22 +1742,22 @@
               </connectionPointOut>
               <variable>DI211_CH7</variable>
             </coil>
-            <inVariable localId="25" height="20" width="28" executionOrderId="0">
-              <position x="303" y="4040"/>
+            <inVariable localId="25" height="20" width="46" executionOrderId="0">
+              <position x="303" y="4100"/>
               <connectionPointOut>
-                <relPosition x="28" y="10"/>
+                <relPosition x="46" y="10"/>
               </connectionPointOut>
-              <expression>T#1s</expression>
+              <expression>T#50ms</expression>
             </inVariable>
             <block localId="26" width="50" height="90" typeName="TON" instanceName="TON_inst3" executionOrderId="0">
-              <position x="369" y="4100"/>
+              <position x="369" y="4160"/>
               <inputVariables>
                 <variable formalParameter="IN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="31">
-                      <position x="369" y="4150"/>
-                      <position x="273" y="4150"/>
+                      <position x="369" y="4210"/>
+                      <position x="273" y="4210"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1578,8 +1765,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="35">
-                      <position x="369" y="4180"/>
-                      <position x="349" y="4180"/>
+                      <position x="369" y="4240"/>
+                      <position x="349" y="4240"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1599,12 +1786,12 @@
               </outputVariables>
             </block>
             <contact localId="31" height="15" width="31" executionOrderId="0" comment="光电式1（入口）">
-              <position x="242" y="4140"/>
+              <position x="242" y="4200"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="348">
-                  <position x="242" y="4150"/>
-                  <position x="212" y="4150"/>
+                  <position x="242" y="4210"/>
+                  <position x="212" y="4210"/>
                   <position x="212" y="3760"/>
                   <position x="182" y="3760"/>
                 </connection>
@@ -1616,12 +1803,12 @@
               <variable1></variable1>
             </contact>
             <coil localId="32" height="15" width="71" executionOrderId="0" storage="reset">
-              <position x="459" y="4140"/>
+              <position x="459" y="4200"/>
               <connectionPointIn>
                 <relPosition x="20" y="10"/>
                 <connection refLocalId="26" formalParameter="Q">
-                  <position x="479" y="4150"/>
-                  <position x="419" y="4150"/>
+                  <position x="479" y="4210"/>
+                  <position x="419" y="4210"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1630,21 +1817,21 @@
               <variable>DI211_CH8</variable>
             </coil>
             <inVariable localId="35" height="20" width="46" executionOrderId="0">
-              <position x="303" y="4170"/>
+              <position x="303" y="4230"/>
               <connectionPointOut>
                 <relPosition x="46" y="10"/>
               </connectionPointOut>
               <expression>T#50ms</expression>
             </inVariable>
             <block localId="7" width="50" height="90" typeName="TON" instanceName="TON_inst4" executionOrderId="0">
-              <position x="361" y="4230"/>
+              <position x="361" y="4290"/>
               <inputVariables>
                 <variable formalParameter="IN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="8">
-                      <position x="361" y="4280"/>
-                      <position x="273" y="4280"/>
+                      <position x="361" y="4340"/>
+                      <position x="273" y="4340"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1652,8 +1839,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="36">
-                      <position x="361" y="4310"/>
-                      <position x="341" y="4310"/>
+                      <position x="361" y="4370"/>
+                      <position x="341" y="4370"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1673,12 +1860,12 @@
               </outputVariables>
             </block>
             <contact localId="8" height="15" width="31" executionOrderId="0" comment="电感式接近开关">
-              <position x="242" y="4270"/>
+              <position x="242" y="4330"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="348">
-                  <position x="242" y="4280"/>
-                  <position x="212" y="4280"/>
+                  <position x="242" y="4340"/>
+                  <position x="212" y="4340"/>
                   <position x="212" y="3760"/>
                   <position x="182" y="3760"/>
                 </connection>
@@ -1690,12 +1877,12 @@
               <variable1></variable1>
             </contact>
             <coil localId="28" height="15" width="71" executionOrderId="0" storage="reset">
-              <position x="451" y="4270"/>
+              <position x="451" y="4330"/>
               <connectionPointIn>
                 <relPosition x="20" y="10"/>
                 <connection refLocalId="7" formalParameter="Q">
-                  <position x="471" y="4280"/>
-                  <position x="411" y="4280"/>
+                  <position x="471" y="4340"/>
+                  <position x="411" y="4340"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1704,21 +1891,21 @@
               <variable>DI211_CH9</variable>
             </coil>
             <inVariable localId="36" height="20" width="38" executionOrderId="0">
-              <position x="303" y="4300"/>
+              <position x="303" y="4360"/>
               <connectionPointOut>
                 <relPosition x="38" y="10"/>
               </connectionPointOut>
               <expression>T#0.2s</expression>
             </inVariable>
             <block localId="37" width="50" height="90" typeName="TON" instanceName="TON_inst5" executionOrderId="0">
-              <position x="361" y="4360"/>
+              <position x="361" y="4420"/>
               <inputVariables>
                 <variable formalParameter="IN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="38">
-                      <position x="361" y="4410"/>
-                      <position x="273" y="4410"/>
+                      <position x="361" y="4470"/>
+                      <position x="273" y="4470"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1726,8 +1913,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="40">
-                      <position x="361" y="4440"/>
-                      <position x="341" y="4440"/>
+                      <position x="361" y="4500"/>
+                      <position x="341" y="4500"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1747,12 +1934,12 @@
               </outputVariables>
             </block>
             <contact localId="38" height="15" width="31" executionOrderId="0" comment="霍尔式接近开关">
-              <position x="242" y="4400"/>
+              <position x="242" y="4460"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="348">
-                  <position x="242" y="4410"/>
-                  <position x="212" y="4410"/>
+                  <position x="242" y="4470"/>
+                  <position x="212" y="4470"/>
                   <position x="212" y="3760"/>
                   <position x="182" y="3760"/>
                 </connection>
@@ -1764,12 +1951,12 @@
               <variable1></variable1>
             </contact>
             <coil localId="39" height="15" width="79" executionOrderId="0" storage="reset">
-              <position x="451" y="4400"/>
+              <position x="451" y="4460"/>
               <connectionPointIn>
                 <relPosition x="24" y="10"/>
                 <connection refLocalId="37" formalParameter="Q">
-                  <position x="475" y="4410"/>
-                  <position x="411" y="4410"/>
+                  <position x="475" y="4470"/>
+                  <position x="411" y="4470"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1778,7 +1965,7 @@
               <variable>DI211_CH10</variable>
             </coil>
             <inVariable localId="40" height="20" width="38" executionOrderId="0">
-              <position x="303" y="4430"/>
+              <position x="303" y="4490"/>
               <connectionPointOut>
                 <relPosition x="38" y="10"/>
               </connectionPointOut>
@@ -1800,12 +1987,12 @@
               <variable1></variable1>
             </contact>
             <contact localId="45" height="15" width="71" executionOrderId="0">
-              <position x="242" y="4490"/>
+              <position x="242" y="4550"/>
               <connectionPointIn>
                 <relPosition x="20" y="10"/>
                 <connection refLocalId="348">
-                  <position x="262" y="4500"/>
-                  <position x="212" y="4500"/>
+                  <position x="262" y="4560"/>
+                  <position x="212" y="4560"/>
                   <position x="212" y="3760"/>
                   <position x="182" y="3760"/>
                 </connection>
@@ -1817,12 +2004,12 @@
               <variable1></variable1>
             </contact>
             <coil localId="48" height="15" width="31" executionOrderId="0" comment="光电式0">
-              <position x="343" y="4490"/>
+              <position x="343" y="4550"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="45">
-                  <position x="343" y="4500"/>
-                  <position x="293" y="4500"/>
+                  <position x="343" y="4560"/>
+                  <position x="293" y="4560"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1831,12 +2018,12 @@
               <variable>GD0</variable>
             </coil>
             <contact localId="49" height="15" width="71" executionOrderId="0">
-              <position x="242" y="4540"/>
+              <position x="242" y="4600"/>
               <connectionPointIn>
                 <relPosition x="20" y="10"/>
                 <connection refLocalId="348">
-                  <position x="262" y="4550"/>
-                  <position x="212" y="4550"/>
+                  <position x="262" y="4610"/>
+                  <position x="212" y="4610"/>
                   <position x="212" y="3760"/>
                   <position x="182" y="3760"/>
                 </connection>
@@ -1848,12 +2035,12 @@
               <variable1></variable1>
             </contact>
             <coil localId="71" height="15" width="31" executionOrderId="0" comment="光电式1（入口）">
-              <position x="343" y="4540"/>
+              <position x="343" y="4600"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="49">
-                  <position x="343" y="4550"/>
-                  <position x="293" y="4550"/>
+                  <position x="343" y="4610"/>
+                  <position x="293" y="4610"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1862,12 +2049,12 @@
               <variable>GD1</variable>
             </coil>
             <contact localId="72" height="15" width="71" executionOrderId="0">
-              <position x="242" y="4590"/>
+              <position x="242" y="4650"/>
               <connectionPointIn>
                 <relPosition x="20" y="10"/>
                 <connection refLocalId="348">
-                  <position x="262" y="4600"/>
-                  <position x="212" y="4600"/>
+                  <position x="262" y="4660"/>
+                  <position x="212" y="4660"/>
                   <position x="212" y="3760"/>
                   <position x="182" y="3760"/>
                 </connection>
@@ -1879,12 +2066,12 @@
               <variable1></variable1>
             </contact>
             <coil localId="73" height="15" width="31" executionOrderId="0" comment="电感式接近开关">
-              <position x="343" y="4590"/>
+              <position x="343" y="4650"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="72">
-                  <position x="343" y="4600"/>
-                  <position x="293" y="4600"/>
+                  <position x="343" y="4660"/>
+                  <position x="293" y="4660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1893,12 +2080,12 @@
               <variable>GD2</variable>
             </coil>
             <contact localId="74" height="15" width="79" executionOrderId="0">
-              <position x="242" y="4640"/>
+              <position x="242" y="4700"/>
               <connectionPointIn>
                 <relPosition x="24" y="10"/>
                 <connection refLocalId="348">
-                  <position x="266" y="4650"/>
-                  <position x="212" y="4650"/>
+                  <position x="266" y="4710"/>
+                  <position x="212" y="4710"/>
                   <position x="212" y="3760"/>
                   <position x="182" y="3760"/>
                 </connection>
@@ -1910,12 +2097,12 @@
               <variable1></variable1>
             </contact>
             <coil localId="75" height="15" width="31" executionOrderId="0" comment="霍尔式接近开关">
-              <position x="351" y="4640"/>
+              <position x="351" y="4700"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="74">
-                  <position x="351" y="4650"/>
-                  <position x="297" y="4650"/>
+                  <position x="351" y="4710"/>
+                  <position x="297" y="4710"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1949,50 +2136,50 @@
               <variable>state_after</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="360" height="15" width="69">
-              <position x="339" y="2880"/>
+            <contact localId="360" height="15" width="56">
+              <position x="333" y="2880"/>
               <connectionPointIn>
-                <relPosition x="19" y="10"/>
+                <relPosition x="12" y="10"/>
                 <connection refLocalId="279">
-                  <position x="358" y="2890"/>
-                  <position x="309" y="2890"/>
-                  <position x="309" y="2800"/>
-                  <position x="277" y="2800"/>
+                  <position x="345" y="2890"/>
+                  <position x="303" y="2890"/>
+                  <position x="303" y="2800"/>
+                  <position x="273" y="2800"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="50" y="10"/>
+                <relPosition x="43" y="10"/>
               </connectionPointOut>
               <variable>state_fan</variable>
               <variable1></variable1>
             </contact>
-            <coil localId="361" height="15" width="91">
-              <position x="438" y="2880"/>
+            <coil localId="361" height="15" width="78">
+              <position x="419" y="2880"/>
               <connectionPointIn>
-                <relPosition x="30" y="10"/>
+                <relPosition x="23" y="10"/>
                 <connection refLocalId="360">
-                  <position x="468" y="2890"/>
-                  <position x="389" y="2890"/>
+                  <position x="442" y="2890"/>
+                  <position x="376" y="2890"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="60" y="10"/>
+                <relPosition x="53" y="10"/>
               </connectionPointOut>
               <variable>DO211_CH2</variable>
             </coil>
-            <contact localId="364" height="15" width="69" edge="falling">
-              <position x="339" y="2970"/>
+            <contact localId="364" height="15" width="56" edge="falling">
+              <position x="333" y="2970"/>
               <connectionPointIn>
-                <relPosition x="19" y="10"/>
+                <relPosition x="12" y="10"/>
                 <connection refLocalId="279">
-                  <position x="358" y="2980"/>
-                  <position x="309" y="2980"/>
-                  <position x="309" y="2800"/>
-                  <position x="277" y="2800"/>
+                  <position x="345" y="2980"/>
+                  <position x="303" y="2980"/>
+                  <position x="303" y="2800"/>
+                  <position x="273" y="2800"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="50" y="10"/>
+                <relPosition x="43" y="10"/>
               </connectionPointOut>
               <variable>state_fan</variable>
               <variable1></variable1>
@@ -2322,14 +2509,14 @@
               <variable1></variable1>
             </contact>
             <block localId="374" width="50" height="90" typeName="TOF" instanceName="TOF_inst1">
-              <position x="496" y="2930"/>
+              <position x="477" y="2930"/>
               <inputVariables>
                 <variable formalParameter="IN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="364">
-                      <position x="496" y="2980"/>
-                      <position x="389" y="2980"/>
+                      <position x="477" y="2980"/>
+                      <position x="376" y="2980"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2337,8 +2524,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="375">
-                      <position x="496" y="3010"/>
-                      <position x="476" y="3010"/>
+                      <position x="477" y="3010"/>
+                      <position x="457" y="3010"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2358,90 +2545,90 @@
               </outputVariables>
             </block>
             <inVariable localId="375" height="20" width="38" executionOrderId="0">
-              <position x="438" y="3000"/>
+              <position x="419" y="3000"/>
               <connectionPointOut>
                 <relPosition x="38" y="10"/>
               </connectionPointOut>
-              <expression>T#0.3s</expression>
+              <expression>T#0.5s</expression>
             </inVariable>
             <outVariable localId="381" height="20" width="60" executionOrderId="0">
-              <position x="636" y="2970"/>
+              <position x="617" y="2970"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="374" formalParameter="Q">
-                  <position x="636" y="2980"/>
-                  <position x="546" y="2980"/>
+                  <position x="617" y="2980"/>
+                  <position x="527" y="2980"/>
                 </connection>
               </connectionPointIn>
               <expression>state_after</expression>
             </outVariable>
-            <contact localId="382" height="15" width="80" edge="falling" branch_id="3">
-              <position x="339" y="3060"/>
+            <contact localId="382" height="15" width="65" edge="falling" branch_id="3">
+              <position x="333" y="3060"/>
               <connectionPointIn>
-                <relPosition x="24" y="10"/>
+                <relPosition x="17" y="10"/>
                 <connection refLocalId="279">
-                  <position x="363" y="3070"/>
-                  <position x="309" y="3070"/>
-                  <position x="309" y="2800"/>
-                  <position x="277" y="2800"/>
+                  <position x="350" y="3070"/>
+                  <position x="303" y="3070"/>
+                  <position x="303" y="2800"/>
+                  <position x="273" y="2800"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="55" y="10"/>
+                <relPosition x="48" y="10"/>
               </connectionPointOut>
               <variable>state_after</variable>
               <variable1></variable1>
             </contact>
-            <coil localId="383" height="15" width="34" storage="reset" comment="开启流程">
-              <position x="479" y="3060"/>
+            <coil localId="383" height="15" width="31" storage="reset" comment="开启流程">
+              <position x="458" y="3060"/>
               <connectionPointIn>
-                <relPosition x="1" y="10"/>
+                <relPosition x="0" y="10"/>
                 <connection refLocalId="382">
-                  <position x="480" y="3070"/>
-                  <position x="394" y="3070"/>
+                  <position x="458" y="3070"/>
+                  <position x="381" y="3070"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="31" y="10"/>
+                <relPosition x="30" y="10"/>
               </connectionPointOut>
               <variable>start</variable>
             </coil>
             <outVariable localId="384" height="20" width="40" executionOrderId="0">
-              <position x="566" y="3000"/>
+              <position x="547" y="3000"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="374" formalParameter="ET">
-                  <position x="566" y="3010"/>
-                  <position x="546" y="3010"/>
+                  <position x="547" y="3010"/>
+                  <position x="527" y="3010"/>
                 </connection>
               </connectionPointIn>
               <expression>T_After</expression>
             </outVariable>
-            <coil localId="385" height="15" width="75" storage="reset">
-              <position x="479" y="3110"/>
+            <coil localId="385" height="15" width="61" storage="reset">
+              <position x="458" y="3110"/>
               <connectionPointIn>
-                <relPosition x="22" y="10"/>
+                <relPosition x="15" y="10"/>
                 <connection refLocalId="382">
-                  <position x="501" y="3120"/>
-                  <position x="449" y="3120"/>
-                  <position x="449" y="3070"/>
-                  <position x="394" y="3070"/>
+                  <position x="473" y="3120"/>
+                  <position x="428" y="3120"/>
+                  <position x="428" y="3070"/>
+                  <position x="381" y="3070"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="52" y="10"/>
+                <relPosition x="45" y="10"/>
               </connectionPointOut>
               <variable>start_heat</variable>
             </coil>
             <block localId="386" width="50" height="90" typeName="TOF" instanceName="TOF_inst2">
-              <position x="522" y="2750"/>
+              <position x="501" y="2750"/>
               <inputVariables>
                 <variable formalParameter="IN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="280">
-                      <position x="522" y="2800"/>
-                      <position x="393" y="2800"/>
+                      <position x="501" y="2800"/>
+                      <position x="380" y="2800"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2449,8 +2636,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="388">
-                      <position x="522" y="2830"/>
-                      <position x="502" y="2830"/>
+                      <position x="501" y="2830"/>
+                      <position x="481" y="2830"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2470,30 +2657,30 @@
               </outputVariables>
             </block>
             <outVariable localId="387" height="20" width="51" executionOrderId="0">
-              <position x="665" y="2790"/>
+              <position x="644" y="2790"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="386" formalParameter="Q">
-                  <position x="665" y="2800"/>
-                  <position x="572" y="2800"/>
+                  <position x="644" y="2800"/>
+                  <position x="551" y="2800"/>
                 </connection>
               </connectionPointIn>
               <expression>state_fan</expression>
             </outVariable>
             <inVariable localId="388" height="20" width="55" executionOrderId="0" comment="加热时间">
-              <position x="447" y="2820"/>
+              <position x="426" y="2820"/>
               <connectionPointOut>
                 <relPosition x="55" y="10"/>
               </connectionPointOut>
               <expression>heat_time</expression>
             </inVariable>
             <outVariable localId="389" height="20" width="43" executionOrderId="0">
-              <position x="592" y="2820"/>
+              <position x="571" y="2820"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="386" formalParameter="ET">
-                  <position x="592" y="2830"/>
-                  <position x="572" y="2830"/>
+                  <position x="571" y="2830"/>
+                  <position x="551" y="2830"/>
                 </connection>
               </connectionPointIn>
               <expression>T_HEAT</expression>
@@ -2558,29 +2745,44 @@
               <variable>run</variable>
               <variable1></variable1>
             </contact>
-            <coil localId="405" height="15" width="80">
-              <position x="426" y="560"/>
+            <contact localId="398" height="15" width="65">
+              <position x="212" y="560"/>
               <connectionPointIn>
-                <relPosition x="24" y="10"/>
-                <connection refLocalId="406" formalParameter="Q">
-                  <position x="450" y="570"/>
-                  <position x="337" y="570"/>
+                <relPosition x="17" y="10"/>
+                <connection refLocalId="417">
+                  <position x="229" y="570"/>
+                  <position x="182" y="570"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="54" y="10"/>
+                <relPosition x="48" y="10"/>
+              </connectionPointOut>
+              <variable>state_after</variable>
+              <variable1></variable1>
+            </contact>
+            <coil localId="405" height="15" width="65">
+              <position x="504" y="560"/>
+              <connectionPointIn>
+                <relPosition x="17" y="10"/>
+                <connection refLocalId="406" formalParameter="Q">
+                  <position x="521" y="570"/>
+                  <position x="415" y="570"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="47" y="10"/>
               </connectionPointOut>
               <variable>push_after</variable>
             </coil>
             <block localId="406" width="50" height="90" typeName="TON" instanceName="TON_inst6">
-              <position x="287" y="520"/>
+              <position x="365" y="520"/>
               <inputVariables>
                 <variable formalParameter="IN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="579">
-                      <position x="287" y="570"/>
-                      <position x="183" y="570"/>
+                    <connection refLocalId="398">
+                      <position x="365" y="570"/>
+                      <position x="260" y="570"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2588,8 +2790,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="407">
-                      <position x="287" y="600"/>
-                      <position x="267" y="600"/>
+                      <position x="365" y="600"/>
+                      <position x="345" y="600"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2608,44 +2810,59 @@
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="407" height="20" width="53" executionOrderId="0">
-              <position x="214" y="590"/>
+            <inVariable localId="407" height="20" width="38" executionOrderId="0">
+              <position x="307" y="590"/>
               <connectionPointOut>
-                <relPosition x="53" y="10"/>
+                <relPosition x="38" y="10"/>
               </connectionPointOut>
-              <expression>T#100ms</expression>
+              <expression>T#0.3s</expression>
             </inVariable>
             <outVariable localId="408" height="20" width="39" executionOrderId="0">
-              <position x="357" y="590"/>
+              <position x="435" y="590"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="406" formalParameter="ET">
-                  <position x="357" y="600"/>
-                  <position x="337" y="600"/>
+                  <position x="435" y="600"/>
+                  <position x="415" y="600"/>
                 </connection>
               </connectionPointIn>
               <expression>T_Push</expression>
             </outVariable>
+            <contact localId="417" height="15" width="31" comment="开启流程">
+              <position x="151" y="560"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="396">
+                  <position x="151" y="570"/>
+                  <position x="121" y="570"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="31" y="10"/>
+              </connectionPointOut>
+              <variable>start</variable>
+              <variable1></variable1>
+            </contact>
             <leftPowerRail localId="431" height="40" width="10">
-              <position x="50" y="4760"/>
+              <position x="50" y="4820"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
-              <line x="0" y="4960"/>
+              <line x="0" y="5020"/>
             </leftPowerRail>
             <comment localId="432" height="30" width="810" type="1">
-              <position x="50" y="4680"/>
+              <position x="50" y="4740"/>
               <content>
 <![CDATA[绿色]]>
               </content>
             </comment>
             <contact localId="433" height="15" width="79" negated="true">
-              <position x="120" y="4770"/>
+              <position x="120" y="4830"/>
               <connectionPointIn>
                 <relPosition x="24" y="10"/>
                 <connection refLocalId="431">
-                  <position x="144" y="4780"/>
-                  <position x="60" y="4780"/>
+                  <position x="144" y="4840"/>
+                  <position x="60" y="4840"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2655,18 +2872,18 @@
               <variable1></variable1>
             </contact>
             <coil localId="435" height="15" width="31" comment="总开关">
-              <position x="259" y="4770"/>
+              <position x="259" y="4830"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="433">
-                  <position x="259" y="4780"/>
-                  <position x="175" y="4780"/>
+                  <position x="259" y="4840"/>
+                  <position x="175" y="4840"/>
                 </connection>
                 <connection refLocalId="440">
-                  <position x="259" y="4780"/>
-                  <position x="229" y="4780"/>
-                  <position x="229" y="4830"/>
-                  <position x="151" y="4830"/>
+                  <position x="259" y="4840"/>
+                  <position x="229" y="4840"/>
+                  <position x="229" y="4890"/>
+                  <position x="151" y="4890"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2675,14 +2892,14 @@
               <variable>run</variable>
             </coil>
             <contact localId="440" height="15" width="31" comment="总开关">
-              <position x="120" y="4820"/>
+              <position x="120" y="4880"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="431">
-                  <position x="120" y="4830"/>
-                  <position x="90" y="4830"/>
-                  <position x="90" y="4780"/>
-                  <position x="60" y="4780"/>
+                  <position x="120" y="4890"/>
+                  <position x="90" y="4890"/>
+                  <position x="90" y="4840"/>
+                  <position x="60" y="4840"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2707,14 +2924,14 @@
               <variable1></variable1>
             </contact>
             <contact localId="438" height="15" width="79" executionOrderId="0" negated="true">
-              <position x="120" y="4870"/>
+              <position x="120" y="4930"/>
               <connectionPointIn>
                 <relPosition x="24" y="10"/>
                 <connection refLocalId="431">
-                  <position x="144" y="4880"/>
-                  <position x="90" y="4880"/>
-                  <position x="90" y="4780"/>
-                  <position x="60" y="4780"/>
+                  <position x="144" y="4940"/>
+                  <position x="90" y="4940"/>
+                  <position x="90" y="4840"/>
+                  <position x="60" y="4840"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2724,18 +2941,18 @@
               <variable1></variable1>
             </contact>
             <coil localId="439" height="15" width="31" executionOrderId="0" negated="true" comment="总开关">
-              <position x="259" y="4870"/>
+              <position x="259" y="4930"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="438">
-                  <position x="259" y="4880"/>
-                  <position x="175" y="4880"/>
+                  <position x="259" y="4940"/>
+                  <position x="175" y="4940"/>
                 </connection>
                 <connection refLocalId="505">
-                  <position x="259" y="4880"/>
-                  <position x="229" y="4880"/>
-                  <position x="229" y="4930"/>
-                  <position x="151" y="4930"/>
+                  <position x="259" y="4940"/>
+                  <position x="229" y="4940"/>
+                  <position x="229" y="4990"/>
+                  <position x="151" y="4990"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2744,25 +2961,25 @@
               <variable>run</variable>
             </coil>
             <leftPowerRail localId="452" height="40" width="10">
-              <position x="50" y="5040"/>
+              <position x="50" y="5100"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
-              <line x="0" y="5240"/>
+              <line x="0" y="5300"/>
             </leftPowerRail>
             <comment localId="453" height="20" width="800" type="1">
-              <position x="50" y="4960"/>
+              <position x="50" y="5020"/>
               <content>
 <![CDATA[注释]]>
               </content>
             </comment>
             <contact localId="454" height="15" width="78">
-              <position x="120" y="5050"/>
+              <position x="120" y="5110"/>
               <connectionPointIn>
                 <relPosition x="23" y="10"/>
                 <connection refLocalId="452">
-                  <position x="143" y="5060"/>
-                  <position x="60" y="5060"/>
+                  <position x="143" y="5120"/>
+                  <position x="60" y="5120"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2772,18 +2989,18 @@
               <variable1></variable1>
             </contact>
             <coil localId="455" height="15" width="31" comment="总开关">
-              <position x="258" y="5050"/>
+              <position x="258" y="5110"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="454">
-                  <position x="258" y="5060"/>
-                  <position x="174" y="5060"/>
+                  <position x="258" y="5120"/>
+                  <position x="174" y="5120"/>
                 </connection>
                 <connection refLocalId="456">
-                  <position x="258" y="5060"/>
-                  <position x="228" y="5060"/>
-                  <position x="228" y="5110"/>
-                  <position x="151" y="5110"/>
+                  <position x="258" y="5120"/>
+                  <position x="228" y="5120"/>
+                  <position x="228" y="5170"/>
+                  <position x="151" y="5170"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2792,14 +3009,14 @@
               <variable>run</variable>
             </coil>
             <contact localId="456" height="15" width="31" comment="总开关">
-              <position x="120" y="5100"/>
+              <position x="120" y="5160"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="452">
-                  <position x="120" y="5110"/>
-                  <position x="90" y="5110"/>
-                  <position x="90" y="5060"/>
-                  <position x="60" y="5060"/>
+                  <position x="120" y="5170"/>
+                  <position x="90" y="5170"/>
+                  <position x="90" y="5120"/>
+                  <position x="60" y="5120"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2809,14 +3026,14 @@
               <variable1></variable1>
             </contact>
             <contact localId="457" height="15" width="78">
-              <position x="120" y="5150"/>
+              <position x="120" y="5210"/>
               <connectionPointIn>
                 <relPosition x="23" y="10"/>
                 <connection refLocalId="452">
-                  <position x="143" y="5160"/>
-                  <position x="90" y="5160"/>
-                  <position x="90" y="5060"/>
-                  <position x="60" y="5060"/>
+                  <position x="143" y="5220"/>
+                  <position x="90" y="5220"/>
+                  <position x="90" y="5120"/>
+                  <position x="60" y="5120"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2826,18 +3043,18 @@
               <variable1></variable1>
             </contact>
             <coil localId="458" height="15" width="31" negated="true" comment="总开关">
-              <position x="258" y="5150"/>
+              <position x="258" y="5210"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="457">
-                  <position x="258" y="5160"/>
-                  <position x="174" y="5160"/>
+                  <position x="258" y="5220"/>
+                  <position x="174" y="5220"/>
                 </connection>
                 <connection refLocalId="504">
-                  <position x="258" y="5160"/>
-                  <position x="228" y="5160"/>
-                  <position x="228" y="5210"/>
-                  <position x="151" y="5210"/>
+                  <position x="258" y="5220"/>
+                  <position x="228" y="5220"/>
+                  <position x="228" y="5270"/>
+                  <position x="151" y="5270"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2846,27 +3063,27 @@
               <variable>run</variable>
             </coil>
             <leftPowerRail localId="459" height="40" width="10">
-              <position x="50" y="5510"/>
+              <position x="50" y="5570"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
-              <line x="0" y="5620"/>
+              <line x="0" y="5680"/>
             </leftPowerRail>
             <comment localId="460" height="20" width="800" type="1">
-              <position x="50" y="5430"/>
+              <position x="50" y="5490"/>
               <content>
 <![CDATA[注释]]>
               </content>
             </comment>
             <block localId="469" width="100" height="90" typeName="TIME_TO_REAL" instanceName="">
-              <position x="165" y="5480"/>
+              <position x="165" y="5540"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="459">
-                      <position x="165" y="5530"/>
-                      <position x="60" y="5530"/>
+                      <position x="165" y="5590"/>
+                      <position x="60" y="5590"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2874,8 +3091,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="470">
-                      <position x="165" y="5560"/>
-                      <position x="145" y="5560"/>
+                      <position x="165" y="5620"/>
+                      <position x="145" y="5620"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2895,32 +3112,32 @@
               </outputVariables>
             </block>
             <inVariable localId="470" height="20" width="55" executionOrderId="0" comment="加热时间">
-              <position x="90" y="5550"/>
+              <position x="90" y="5610"/>
               <connectionPointOut>
                 <relPosition x="55" y="10"/>
               </connectionPointOut>
               <expression>heat_time</expression>
             </inVariable>
             <outVariable localId="471" height="20" width="77" executionOrderId="0">
-              <position x="285" y="5550"/>
+              <position x="285" y="5610"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="469" formalParameter="OUT">
-                  <position x="285" y="5560"/>
-                  <position x="265" y="5560"/>
+                  <position x="285" y="5620"/>
+                  <position x="265" y="5620"/>
                 </connection>
               </connectionPointIn>
               <expression>heat_timereal</expression>
             </outVariable>
             <block localId="472" width="100" height="90" typeName="TIME_TO_REAL" instanceName="">
-              <position x="455" y="5480"/>
+              <position x="455" y="5540"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="469" formalParameter="ENO">
-                      <position x="455" y="5530"/>
-                      <position x="265" y="5530"/>
+                      <position x="455" y="5590"/>
+                      <position x="265" y="5590"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2928,8 +3145,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="473">
-                      <position x="455" y="5560"/>
-                      <position x="435" y="5560"/>
+                      <position x="455" y="5620"/>
+                      <position x="435" y="5620"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2949,32 +3166,32 @@
               </outputVariables>
             </block>
             <inVariable localId="473" height="20" width="43" executionOrderId="0">
-              <position x="392" y="5550"/>
+              <position x="392" y="5610"/>
               <connectionPointOut>
                 <relPosition x="43" y="10"/>
               </connectionPointOut>
               <expression>T_HEAT</expression>
             </inVariable>
             <outVariable localId="474" height="20" width="64" executionOrderId="0">
-              <position x="575" y="5550"/>
+              <position x="575" y="5610"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="472" formalParameter="OUT">
-                  <position x="575" y="5560"/>
-                  <position x="555" y="5560"/>
+                  <position x="575" y="5620"/>
+                  <position x="555" y="5620"/>
                 </connection>
               </connectionPointIn>
               <expression>T_TIMEreal</expression>
             </outVariable>
             <block localId="478" width="65" height="120" typeName="DIV_REAL" instanceName="">
-              <position x="766" y="5480"/>
+              <position x="766" y="5540"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="472" formalParameter="ENO">
-                      <position x="766" y="5530"/>
-                      <position x="555" y="5530"/>
+                      <position x="766" y="5590"/>
+                      <position x="555" y="5590"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2982,8 +3199,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="479">
-                      <position x="766" y="5560"/>
-                      <position x="746" y="5560"/>
+                      <position x="766" y="5620"/>
+                      <position x="746" y="5620"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2991,8 +3208,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="110"/>
                     <connection refLocalId="480">
-                      <position x="766" y="5590"/>
-                      <position x="746" y="5590"/>
+                      <position x="766" y="5650"/>
+                      <position x="746" y="5650"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3012,26 +3229,26 @@
               </outputVariables>
             </block>
             <inVariable localId="479" height="20" width="64" executionOrderId="0">
-              <position x="682" y="5550"/>
+              <position x="682" y="5610"/>
               <connectionPointOut>
                 <relPosition x="64" y="10"/>
               </connectionPointOut>
               <expression>T_TIMEreal</expression>
             </inVariable>
             <inVariable localId="480" height="20" width="77" executionOrderId="0">
-              <position x="669" y="5580"/>
+              <position x="669" y="5640"/>
               <connectionPointOut>
                 <relPosition x="77" y="10"/>
               </connectionPointOut>
               <expression>heat_timereal</expression>
             </inVariable>
             <outVariable localId="481" height="20" width="64" executionOrderId="0">
-              <position x="851" y="5550"/>
+              <position x="851" y="5610"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="478" formalParameter="OUT">
-                  <position x="851" y="5560"/>
-                  <position x="831" y="5560"/>
+                  <position x="851" y="5620"/>
+                  <position x="831" y="5620"/>
                 </connection>
               </connectionPointIn>
               <expression>T_TIMEreal</expression>
@@ -3064,62 +3281,62 @@
               <variable>run</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="6" height="15" width="34" executionOrderId="0" comment="开启流程" branch_id="1">
+            <contact localId="6" height="15" width="31" executionOrderId="0" comment="开启流程" branch_id="1">
               <position x="151" y="1410"/>
               <connectionPointIn>
-                <relPosition x="1" y="10"/>
+                <relPosition x="0" y="10"/>
                 <connection refLocalId="5">
-                  <position x="152" y="1420"/>
+                  <position x="151" y="1420"/>
                   <position x="121" y="1420"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="32" y="10"/>
+                <relPosition x="31" y="10"/>
               </connectionPointOut>
               <variable>start</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="9" height="15" width="33" executionOrderId="0" comment="电感式接近开关">
-              <position x="245" y="1410"/>
+            <contact localId="9" height="15" width="31" executionOrderId="0" comment="霍尔式接近开关">
+              <position x="242" y="1410"/>
               <connectionPointIn>
-                <relPosition x="1" y="10"/>
+                <relPosition x="0" y="10"/>
                 <connection refLocalId="6">
-                  <position x="246" y="1420"/>
-                  <position x="183" y="1420"/>
+                  <position x="242" y="1420"/>
+                  <position x="182" y="1420"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="32" y="10"/>
+                <relPosition x="31" y="10"/>
               </connectionPointOut>
-              <variable>GD2</variable>
+              <variable>GD3</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="496" height="15" width="56" negated="true" comment="sort flag">
-              <position x="245" y="1550"/>
+            <contact localId="496" height="15" width="47" negated="true" comment="sort flag">
+              <position x="242" y="1550"/>
               <connectionPointIn>
-                <relPosition x="12" y="10"/>
+                <relPosition x="8" y="10"/>
                 <connection refLocalId="6">
-                  <position x="257" y="1560"/>
-                  <position x="215" y="1560"/>
-                  <position x="215" y="1420"/>
-                  <position x="183" y="1420"/>
+                  <position x="250" y="1560"/>
+                  <position x="212" y="1560"/>
+                  <position x="212" y="1420"/>
+                  <position x="182" y="1420"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="43" y="10"/>
+                <relPosition x="39" y="10"/>
               </connectionPointOut>
               <variable>is_sort1</variable>
               <variable1></variable1>
             </contact>
             <block localId="29" width="100" height="90" typeName="MOVE_STRING" instanceName="" executionOrderId="0">
-              <position x="364" y="1510"/>
+              <position x="352" y="1510"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="496">
-                      <position x="364" y="1560"/>
-                      <position x="288" y="1560"/>
+                      <position x="352" y="1560"/>
+                      <position x="281" y="1560"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3127,8 +3344,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="497">
-                      <position x="364" y="1590"/>
-                      <position x="344" y="1590"/>
+                      <position x="352" y="1590"/>
+                      <position x="332" y="1590"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3148,38 +3365,38 @@
               </outputVariables>
             </block>
             <inVariable localId="497" height="20" width="13" executionOrderId="0">
-              <position x="331" y="1580"/>
+              <position x="319" y="1580"/>
               <connectionPointOut>
                 <relPosition x="13" y="10"/>
               </connectionPointOut>
               <expression>'1'</expression>
             </inVariable>
             <outVariable localId="498" height="20" width="31" executionOrderId="0" comment="1木块2磁性3非磁性">
-              <position x="484" y="1580"/>
+              <position x="472" y="1580"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="29" formalParameter="OUT">
-                  <position x="484" y="1590"/>
-                  <position x="464" y="1590"/>
+                  <position x="472" y="1590"/>
+                  <position x="452" y="1590"/>
                 </connection>
               </connectionPointIn>
               <expression>types</expression>
             </outVariable>
             <block localId="30" width="100" height="90" typeName="MOVE_STRING" instanceName="" executionOrderId="0">
-              <position x="394" y="1370"/>
+              <position x="382" y="1370"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="9">
-                      <position x="394" y="1420"/>
-                      <position x="277" y="1420"/>
+                      <position x="382" y="1420"/>
+                      <position x="273" y="1420"/>
                     </connection>
                     <connection refLocalId="502">
-                      <position x="394" y="1420"/>
-                      <position x="331" y="1420"/>
-                      <position x="331" y="1470"/>
-                      <position x="288" y="1470"/>
+                      <position x="382" y="1420"/>
+                      <position x="319" y="1420"/>
+                      <position x="319" y="1470"/>
+                      <position x="281" y="1470"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3187,8 +3404,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="499">
-                      <position x="394" y="1450"/>
-                      <position x="374" y="1450"/>
+                      <position x="382" y="1450"/>
+                      <position x="362" y="1450"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3208,50 +3425,50 @@
               </outputVariables>
             </block>
             <inVariable localId="499" height="20" width="13" executionOrderId="0">
-              <position x="361" y="1440"/>
+              <position x="349" y="1440"/>
               <connectionPointOut>
                 <relPosition x="13" y="10"/>
               </connectionPointOut>
               <expression>'3'</expression>
             </inVariable>
             <outVariable localId="500" height="20" width="31" executionOrderId="0" comment="1木块2磁性3非磁性">
-              <position x="514" y="1440"/>
+              <position x="502" y="1440"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="30" formalParameter="OUT">
-                  <position x="514" y="1450"/>
-                  <position x="494" y="1450"/>
+                  <position x="502" y="1450"/>
+                  <position x="482" y="1450"/>
                 </connection>
               </connectionPointIn>
               <expression>types</expression>
             </outVariable>
-            <coil localId="501" height="15" width="56" comment="sort flag">
-              <position x="575" y="1410"/>
+            <coil localId="501" height="15" width="47" comment="sort flag">
+              <position x="563" y="1410"/>
               <connectionPointIn>
-                <relPosition x="12" y="10"/>
+                <relPosition x="8" y="10"/>
                 <connection refLocalId="30" formalParameter="ENO">
-                  <position x="587" y="1420"/>
-                  <position x="494" y="1420"/>
+                  <position x="571" y="1420"/>
+                  <position x="482" y="1420"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="42" y="10"/>
+                <relPosition x="38" y="10"/>
               </connectionPointOut>
               <variable>is_sort1</variable>
             </coil>
-            <contact localId="502" height="15" width="56" comment="sort flag">
-              <position x="245" y="1460"/>
+            <contact localId="502" height="15" width="47" comment="sort flag">
+              <position x="242" y="1460"/>
               <connectionPointIn>
-                <relPosition x="12" y="10"/>
+                <relPosition x="8" y="10"/>
                 <connection refLocalId="6">
-                  <position x="257" y="1470"/>
-                  <position x="215" y="1470"/>
-                  <position x="215" y="1420"/>
-                  <position x="183" y="1420"/>
+                  <position x="250" y="1470"/>
+                  <position x="212" y="1470"/>
+                  <position x="212" y="1420"/>
+                  <position x="182" y="1420"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="43" y="10"/>
+                <relPosition x="39" y="10"/>
               </connectionPointOut>
               <variable>is_sort1</variable>
               <variable1></variable1>
@@ -3335,7 +3552,7 @@
               <variable>start</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="47" height="15" width="33" executionOrderId="0" comment="霍尔式接近开关">
+            <contact localId="47" height="15" width="33" executionOrderId="0" comment="电感式接近开关">
               <position x="245" y="1710"/>
               <connectionPointIn>
                 <relPosition x="1" y="10"/>
@@ -3347,7 +3564,7 @@
               <connectionPointOut>
                 <relPosition x="32" y="10"/>
               </connectionPointOut>
-              <variable>GD3</variable>
+              <variable>GD2</variable>
               <variable1></variable1>
             </contact>
             <coil localId="55" height="15" width="56" executionOrderId="0">
@@ -3406,14 +3623,14 @@
               </content>
             </comment>
             <contact localId="504" height="15" width="31" negated="true" comment="总开关">
-              <position x="120" y="5200"/>
+              <position x="120" y="5260"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="452">
-                  <position x="120" y="5210"/>
-                  <position x="90" y="5210"/>
-                  <position x="90" y="5060"/>
-                  <position x="60" y="5060"/>
+                  <position x="120" y="5270"/>
+                  <position x="90" y="5270"/>
+                  <position x="90" y="5120"/>
+                  <position x="60" y="5120"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3423,14 +3640,14 @@
               <variable1></variable1>
             </contact>
             <contact localId="505" height="15" width="31" negated="true" comment="总开关">
-              <position x="120" y="4920"/>
+              <position x="120" y="4980"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="431">
-                  <position x="120" y="4930"/>
-                  <position x="90" y="4930"/>
-                  <position x="90" y="4780"/>
-                  <position x="60" y="4780"/>
+                  <position x="120" y="4990"/>
+                  <position x="90" y="4990"/>
+                  <position x="90" y="4840"/>
+                  <position x="60" y="4840"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3440,25 +3657,25 @@
               <variable1></variable1>
             </contact>
             <leftPowerRail localId="506" height="40" width="10">
-              <position x="50" y="5320"/>
+              <position x="50" y="5380"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
-              <line x="0" y="5430"/>
+              <line x="0" y="5490"/>
             </leftPowerRail>
             <comment localId="507" height="20" width="800" type="1">
-              <position x="50" y="5240"/>
+              <position x="50" y="5300"/>
               <content>
 <![CDATA[注释]]>
               </content>
             </comment>
             <contact localId="508" height="15" width="31" negated="true" comment="总开关">
-              <position x="90" y="5330"/>
+              <position x="90" y="5390"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="506">
-                  <position x="90" y="5340"/>
-                  <position x="60" y="5340"/>
+                  <position x="90" y="5400"/>
+                  <position x="60" y="5400"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3468,14 +3685,14 @@
               <variable1></variable1>
             </contact>
             <block localId="82" width="100" height="120" typeName="PIPO_Config" instanceName="PIPO_Config_inst2" executionOrderId="0">
-              <position x="178" y="5290"/>
+              <position x="178" y="5350"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="508">
-                      <position x="178" y="5340"/>
-                      <position x="121" y="5340"/>
+                      <position x="178" y="5400"/>
+                      <position x="121" y="5400"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3483,8 +3700,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="509">
-                      <position x="178" y="5370"/>
-                      <position x="158" y="5370"/>
+                      <position x="178" y="5430"/>
+                      <position x="158" y="5430"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3492,8 +3709,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="110"/>
                     <connection refLocalId="510">
-                      <position x="178" y="5400"/>
-                      <position x="158" y="5400"/>
+                      <position x="178" y="5460"/>
+                      <position x="158" y="5460"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3513,28 +3730,28 @@
               </outputVariables>
             </block>
             <inVariable localId="509" height="20" width="7" executionOrderId="0">
-              <position x="151" y="5360"/>
+              <position x="151" y="5420"/>
               <connectionPointOut>
                 <relPosition x="7" y="10"/>
               </connectionPointOut>
               <expression>0</expression>
             </inVariable>
             <inVariable localId="510" height="20" width="7" executionOrderId="0">
-              <position x="151" y="5390"/>
+              <position x="151" y="5450"/>
               <connectionPointOut>
                 <relPosition x="7" y="10"/>
               </connectionPointOut>
               <expression>0</expression>
             </inVariable>
             <block localId="511" width="71" height="120" typeName="MUL_REAL" instanceName="">
-              <position x="1029" y="5480"/>
+              <position x="1029" y="5540"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="478" formalParameter="ENO">
-                      <position x="1029" y="5530"/>
-                      <position x="831" y="5530"/>
+                      <position x="1029" y="5590"/>
+                      <position x="831" y="5590"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3542,8 +3759,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="512">
-                      <position x="1029" y="5560"/>
-                      <position x="1009" y="5560"/>
+                      <position x="1029" y="5620"/>
+                      <position x="1009" y="5620"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3551,8 +3768,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="110"/>
                     <connection refLocalId="513">
-                      <position x="1029" y="5590"/>
-                      <position x="1009" y="5590"/>
+                      <position x="1029" y="5650"/>
+                      <position x="1009" y="5650"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3572,39 +3789,39 @@
               </outputVariables>
             </block>
             <inVariable localId="512" height="20" width="64" executionOrderId="0">
-              <position x="945" y="5550"/>
+              <position x="945" y="5610"/>
               <connectionPointOut>
                 <relPosition x="64" y="10"/>
               </connectionPointOut>
               <expression>T_TIMEreal</expression>
             </inVariable>
             <inVariable localId="513" height="20" width="31" executionOrderId="0">
-              <position x="978" y="5580"/>
+              <position x="978" y="5640"/>
               <connectionPointOut>
                 <relPosition x="31" y="10"/>
               </connectionPointOut>
               <expression>100.0</expression>
             </inVariable>
             <outVariable localId="514" height="20" width="64" executionOrderId="0">
-              <position x="1120" y="5550"/>
+              <position x="1120" y="5610"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="511" formalParameter="OUT">
-                  <position x="1120" y="5560"/>
-                  <position x="1100" y="5560"/>
+                  <position x="1120" y="5620"/>
+                  <position x="1100" y="5620"/>
                 </connection>
               </connectionPointIn>
               <expression>T_TIMEreal</expression>
             </outVariable>
             <block localId="516" width="110" height="90" typeName="REAL_TO_UDINT" instanceName="">
-              <position x="1298" y="5480"/>
+              <position x="1298" y="5540"/>
               <inputVariables>
                 <variable formalParameter="EN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="511" formalParameter="ENO">
-                      <position x="1298" y="5530"/>
-                      <position x="1100" y="5530"/>
+                      <position x="1298" y="5590"/>
+                      <position x="1100" y="5590"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3612,8 +3829,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="517">
-                      <position x="1298" y="5560"/>
-                      <position x="1278" y="5560"/>
+                      <position x="1298" y="5620"/>
+                      <position x="1278" y="5620"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3633,19 +3850,19 @@
               </outputVariables>
             </block>
             <inVariable localId="517" height="20" width="64" executionOrderId="0">
-              <position x="1214" y="5550"/>
+              <position x="1214" y="5610"/>
               <connectionPointOut>
                 <relPosition x="64" y="10"/>
               </connectionPointOut>
               <expression>T_TIMEreal</expression>
             </inVariable>
             <outVariable localId="518" height="20" width="78" executionOrderId="0" comment="剩余加热时间">
-              <position x="1428" y="5550"/>
+              <position x="1428" y="5610"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="516" formalParameter="OUT">
-                  <position x="1428" y="5560"/>
-                  <position x="1408" y="5560"/>
+                  <position x="1428" y="5620"/>
+                  <position x="1408" y="5620"/>
                 </connection>
               </connectionPointIn>
               <expression>T_percentage</expression>
@@ -3683,25 +3900,25 @@
               <variable1></variable1>
             </contact>
             <leftPowerRail localId="534" height="40" width="10">
-              <position x="50" y="5700"/>
+              <position x="50" y="5760"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
-              <line x="0" y="5800"/>
+              <line x="0" y="5860"/>
             </leftPowerRail>
             <comment localId="535" height="20" width="800" type="1">
-              <position x="50" y="5620"/>
+              <position x="50" y="5680"/>
               <content>
 <![CDATA[注释]]>
               </content>
             </comment>
             <contact localId="536" height="15" width="71">
-              <position x="120" y="5710"/>
+              <position x="120" y="5770"/>
               <connectionPointIn>
                 <relPosition x="20" y="10"/>
                 <connection refLocalId="534">
-                  <position x="140" y="5720"/>
-                  <position x="60" y="5720"/>
+                  <position x="140" y="5780"/>
+                  <position x="60" y="5780"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3711,18 +3928,18 @@
               <variable1></variable1>
             </contact>
             <coil localId="537" height="15" width="31" comment="自动/手动模式">
-              <position x="251" y="5710"/>
+              <position x="251" y="5770"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="536">
-                  <position x="251" y="5720"/>
-                  <position x="171" y="5720"/>
+                  <position x="251" y="5780"/>
+                  <position x="171" y="5780"/>
                 </connection>
                 <connection refLocalId="538">
-                  <position x="251" y="5720"/>
-                  <position x="221" y="5720"/>
-                  <position x="221" y="5770"/>
-                  <position x="166" y="5770"/>
+                  <position x="251" y="5780"/>
+                  <position x="221" y="5780"/>
+                  <position x="221" y="5830"/>
+                  <position x="166" y="5830"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3731,14 +3948,14 @@
               <variable>A_M</variable>
             </coil>
             <contact localId="538" height="15" width="61">
-              <position x="120" y="5760"/>
+              <position x="120" y="5820"/>
               <connectionPointIn>
                 <relPosition x="15" y="10"/>
                 <connection refLocalId="534">
-                  <position x="135" y="5770"/>
-                  <position x="90" y="5770"/>
-                  <position x="90" y="5720"/>
-                  <position x="60" y="5720"/>
+                  <position x="135" y="5830"/>
+                  <position x="90" y="5830"/>
+                  <position x="90" y="5780"/>
+                  <position x="60" y="5780"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3779,53 +3996,55 @@
               <variable>A_M</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="542" height="15" width="34" comment="开启流程">
-              <position x="245" y="3160"/>
+            <contact localId="542" height="15" width="31" comment="开启流程">
+              <position x="242" y="3160"/>
               <connectionPointIn>
-                <relPosition x="1" y="10"/>
+                <relPosition x="0" y="10"/>
                 <connection refLocalId="541">
-                  <position x="246" y="3170"/>
-                  <position x="213" y="3170"/>
+                  <position x="242" y="3170"/>
+                  <position x="227" y="3170"/>
+                  <position x="227" y="3120"/>
+                  <position x="212" y="3120"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="32" y="10"/>
+                <relPosition x="31" y="10"/>
               </connectionPointOut>
               <variable>start</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="543" height="15" width="69">
-              <position x="309" y="3160"/>
+            <contact localId="543" height="15" width="56">
+              <position x="303" y="3160"/>
               <connectionPointIn>
-                <relPosition x="19" y="10"/>
+                <relPosition x="12" y="10"/>
                 <connection refLocalId="542">
-                  <position x="328" y="3170"/>
-                  <position x="277" y="3170"/>
+                  <position x="315" y="3170"/>
+                  <position x="273" y="3170"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="50" y="10"/>
+                <relPosition x="43" y="10"/>
               </connectionPointOut>
               <variable>state_fan</variable>
               <variable1></variable1>
             </contact>
-            <coil localId="544" height="15" width="91">
-              <position x="438" y="3160"/>
+            <coil localId="544" height="15" width="78">
+              <position x="419" y="3160"/>
               <connectionPointIn>
-                <relPosition x="30" y="10"/>
+                <relPosition x="23" y="10"/>
                 <connection refLocalId="543">
-                  <position x="468" y="3170"/>
-                  <position x="359" y="3170"/>
+                  <position x="442" y="3170"/>
+                  <position x="346" y="3170"/>
                 </connection>
                 <connection refLocalId="548">
-                  <position x="468" y="3170"/>
-                  <position x="408" y="3170"/>
-                  <position x="408" y="3220"/>
-                  <position x="279" y="3220"/>
+                  <position x="442" y="3170"/>
+                  <position x="389" y="3170"/>
+                  <position x="389" y="3220"/>
+                  <position x="273" y="3220"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="60" y="10"/>
+                <relPosition x="53" y="10"/>
               </connectionPointOut>
               <variable>DO211_CH2</variable>
             </coil>
@@ -3846,17 +4065,17 @@
               <variable>A_M</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="548" height="15" width="38">
-              <position x="245" y="3210"/>
+            <contact localId="548" height="15" width="31">
+              <position x="242" y="3210"/>
               <connectionPointIn>
-                <relPosition x="3" y="10"/>
+                <relPosition x="0" y="10"/>
                 <connection refLocalId="547">
-                  <position x="248" y="3220"/>
-                  <position x="213" y="3220"/>
+                  <position x="242" y="3220"/>
+                  <position x="212" y="3220"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="34" y="10"/>
+                <relPosition x="31" y="10"/>
               </connectionPointOut>
               <variable>Feng</variable>
               <variable1></variable1>
@@ -3874,7 +4093,7 @@
 <![CDATA[注释]]>
               </content>
             </comment>
-            <contact localId="86" height="15" width="31" executionOrderId="0" comment="总开关">
+            <contact localId="86" height="15" width="31" executionOrderId="0" comment="总开关" branch_id="1">
               <position x="90" y="720"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
@@ -3904,135 +4123,135 @@
               <variable>A_M</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="88" height="15" width="80" executionOrderId="0" edge="rising">
-              <position x="245" y="720"/>
+            <contact localId="88" height="15" width="65" executionOrderId="0" edge="rising">
+              <position x="242" y="720"/>
               <connectionPointIn>
-                <relPosition x="24" y="10"/>
+                <relPosition x="17" y="10"/>
                 <connection refLocalId="87">
-                  <position x="269" y="730"/>
-                  <position x="213" y="730"/>
+                  <position x="259" y="730"/>
+                  <position x="212" y="730"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="55" y="10"/>
+                <relPosition x="48" y="10"/>
               </connectionPointOut>
               <variable>push_after</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="89" height="15" width="70" executionOrderId="0" comment="选择木块加热时间">
-              <position x="355" y="720"/>
+            <contact localId="89" height="15" width="58" executionOrderId="0" comment="选择木块加热时间">
+              <position x="337" y="720"/>
               <connectionPointIn>
-                <relPosition x="19" y="10"/>
+                <relPosition x="13" y="10"/>
                 <connection refLocalId="88">
-                  <position x="374" y="730"/>
-                  <position x="300" y="730"/>
+                  <position x="350" y="730"/>
+                  <position x="290" y="730"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="50" y="10"/>
+                <relPosition x="44" y="10"/>
               </connectionPointOut>
               <variable>choose_1</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="90" height="15" width="70" executionOrderId="0" negated="true" comment="选择磁性加热时间">
-              <position x="455" y="720"/>
+            <contact localId="90" height="15" width="58" executionOrderId="0" negated="true" comment="选择磁性加热时间">
+              <position x="425" y="720"/>
               <connectionPointIn>
-                <relPosition x="19" y="10"/>
+                <relPosition x="13" y="10"/>
                 <connection refLocalId="89">
-                  <position x="474" y="730"/>
-                  <position x="405" y="730"/>
+                  <position x="438" y="730"/>
+                  <position x="381" y="730"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="50" y="10"/>
+                <relPosition x="44" y="10"/>
               </connectionPointOut>
               <variable>choose_2</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="91" height="15" width="70" executionOrderId="0" negated="true" comment="选择非磁性加热时间">
-              <position x="555" y="720"/>
+            <contact localId="91" height="15" width="58" executionOrderId="0" negated="true" comment="选择非磁性加热时间">
+              <position x="513" y="720"/>
               <connectionPointIn>
-                <relPosition x="19" y="10"/>
+                <relPosition x="13" y="10"/>
                 <connection refLocalId="90">
-                  <position x="574" y="730"/>
-                  <position x="505" y="730"/>
+                  <position x="526" y="730"/>
+                  <position x="469" y="730"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="50" y="10"/>
+                <relPosition x="44" y="10"/>
               </connectionPointOut>
               <variable>choose_3</variable>
               <variable1></variable1>
             </contact>
-            <coil localId="92" height="15" width="91" executionOrderId="0" storage="set">
-              <position x="655" y="720"/>
+            <coil localId="92" height="15" width="78" executionOrderId="0" storage="set">
+              <position x="601" y="720"/>
               <connectionPointIn>
-                <relPosition x="30" y="10"/>
+                <relPosition x="23" y="10"/>
                 <connection refLocalId="91">
-                  <position x="685" y="730"/>
-                  <position x="605" y="730"/>
+                  <position x="624" y="730"/>
+                  <position x="557" y="730"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="60" y="10"/>
+                <relPosition x="53" y="10"/>
               </connectionPointOut>
               <variable>DO211_CH1</variable>
             </coil>
-            <contact localId="563" height="15" width="34" negated="true" comment="自动/手动模式" branch_id="2">
+            <contact localId="563" height="15" width="31" negated="true" comment="自动/手动模式" branch_id="2">
               <position x="181" y="770"/>
               <connectionPointIn>
-                <relPosition x="1" y="10"/>
+                <relPosition x="0" y="10"/>
                 <connection refLocalId="86">
-                  <position x="182" y="780"/>
+                  <position x="181" y="780"/>
                   <position x="151" y="780"/>
                   <position x="151" y="730"/>
                   <position x="121" y="730"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="32" y="10"/>
+                <relPosition x="31" y="10"/>
               </connectionPointOut>
               <variable>A_M</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="565" height="15" width="51" negated="true">
-              <position x="275" y="770"/>
+            <contact localId="565" height="15" width="41" negated="true">
+              <position x="272" y="770"/>
               <connectionPointIn>
-                <relPosition x="10" y="10"/>
+                <relPosition x="5" y="10"/>
                 <connection refLocalId="563">
-                  <position x="285" y="780"/>
-                  <position x="213" y="780"/>
+                  <position x="277" y="780"/>
+                  <position x="212" y="780"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="41" y="10"/>
+                <relPosition x="36" y="10"/>
               </connectionPointOut>
               <variable>trigger</variable>
               <variable1></variable1>
             </contact>
-            <coil localId="566" height="15" width="91" storage="reset">
-              <position x="356" y="770"/>
+            <coil localId="566" height="15" width="78" storage="reset">
+              <position x="343" y="770"/>
               <connectionPointIn>
-                <relPosition x="30" y="10"/>
+                <relPosition x="23" y="10"/>
                 <connection refLocalId="565">
-                  <position x="386" y="780"/>
-                  <position x="316" y="780"/>
+                  <position x="366" y="780"/>
+                  <position x="308" y="780"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="60" y="10"/>
+                <relPosition x="53" y="10"/>
               </connectionPointOut>
               <variable>DO211_CH1</variable>
             </coil>
             <block localId="93" width="50" height="90" typeName="TON" instanceName="TON_inst9" executionOrderId="0">
-              <position x="414" y="870"/>
+              <position x="398" y="870"/>
               <inputVariables>
                 <variable formalParameter="IN" type="BOOL">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="95">
-                      <position x="414" y="920"/>
-                      <position x="306" y="920"/>
+                      <position x="406" y="920"/>
+                      <position x="296" y="920"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -4040,8 +4259,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="80"/>
                     <connection refLocalId="97">
-                      <position x="414" y="950"/>
-                      <position x="394" y="950"/>
+                      <position x="406" y="950"/>
+                      <position x="378" y="950"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -4077,381 +4296,84 @@
               <variable>A_M</variable>
               <variable1></variable1>
             </contact>
-            <contact localId="95" height="15" width="91" executionOrderId="0">
-              <position x="245" y="910"/>
+            <contact localId="95" height="15" width="78" executionOrderId="0">
+              <position x="242" y="910"/>
               <connectionPointIn>
-                <relPosition x="30" y="10"/>
+                <relPosition x="23" y="10"/>
                 <connection refLocalId="94">
-                  <position x="275" y="920"/>
-                  <position x="213" y="920"/>
+                  <position x="265" y="920"/>
+                  <position x="212" y="920"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="61" y="10"/>
+                <relPosition x="54" y="10"/>
               </connectionPointOut>
               <variable>DO211_CH1</variable>
               <variable1></variable1>
             </contact>
-            <coil localId="96" height="15" width="91" executionOrderId="0" storage="reset">
-              <position x="551" y="910"/>
+            <coil localId="96" height="15" width="78" executionOrderId="0" storage="reset">
+              <position x="535" y="910"/>
               <connectionPointIn>
-                <relPosition x="30" y="10"/>
+                <relPosition x="23" y="10"/>
                 <connection refLocalId="93" formalParameter="Q">
-                  <position x="581" y="920"/>
-                  <position x="464" y="920"/>
+                  <position x="558" y="920"/>
+                  <position x="448" y="920"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="60" y="10"/>
+                <relPosition x="53" y="10"/>
               </connectionPointOut>
               <variable>DO211_CH1</variable>
             </coil>
             <inVariable localId="97" height="20" width="28" executionOrderId="0">
-              <position x="366" y="940"/>
+              <position x="350" y="940"/>
               <connectionPointOut>
                 <relPosition x="28" y="10"/>
               </connectionPointOut>
               <expression>T#2s</expression>
             </inVariable>
             <outVariable localId="98" height="20" width="37" executionOrderId="0">
-              <position x="484" y="940"/>
+              <position x="468" y="940"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="93" formalParameter="ET">
-                  <position x="484" y="950"/>
-                  <position x="464" y="950"/>
+                  <position x="468" y="950"/>
+                  <position x="448" y="950"/>
                 </connection>
               </connectionPointIn>
               <expression>temp1</expression>
             </outVariable>
-            <contact localId="568" height="15" width="51">
-              <position x="275" y="820"/>
+            <contact localId="568" height="15" width="41">
+              <position x="272" y="820"/>
               <connectionPointIn>
-                <relPosition x="10" y="10"/>
+                <relPosition x="5" y="10"/>
                 <connection refLocalId="563">
-                  <position x="285" y="830"/>
-                  <position x="245" y="830"/>
-                  <position x="245" y="780"/>
-                  <position x="213" y="780"/>
+                  <position x="277" y="830"/>
+                  <position x="242" y="830"/>
+                  <position x="242" y="780"/>
+                  <position x="212" y="780"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="41" y="10"/>
+                <relPosition x="36" y="10"/>
               </connectionPointOut>
               <variable>trigger</variable>
               <variable1></variable1>
             </contact>
-            <coil localId="569" height="15" width="91" storage="set">
-              <position x="356" y="820"/>
+            <coil localId="569" height="15" width="78" storage="set">
+              <position x="343" y="820"/>
               <connectionPointIn>
-                <relPosition x="30" y="10"/>
+                <relPosition x="23" y="10"/>
                 <connection refLocalId="568">
-                  <position x="386" y="830"/>
-                  <position x="316" y="830"/>
+                  <position x="366" y="830"/>
+                  <position x="308" y="830"/>
                 </connection>
               </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="60" y="10"/>
-              </connectionPointOut>
-              <variable>DO211_CH1</variable>
-            </coil>
-            <contact localId="579" height="15" width="33" comment="光电式0">
-              <position x="151" y="560"/>
-              <connectionPointIn>
-                <relPosition x="1" y="10"/>
-                <connection refLocalId="396">
-                  <position x="152" y="570"/>
-                  <position x="121" y="570"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="32" y="10"/>
-              </connectionPointOut>
-              <variable>GD0</variable>
-              <variable1></variable1>
-            </contact>
-            <block localId="596" width="81" height="90" typeName="MOVE_REAL" instanceName="">
-              <position x="387" y="3710"/>
-              <inputVariables>
-                <variable formalParameter="EN" type="BOOL">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="27">
-                      <position x="387" y="3760"/>
-                      <position x="293" y="3760"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="IN" type="REAL">
-                  <connectionPointIn>
-                    <relPosition x="0" y="80"/>
-                    <connection refLocalId="597">
-                      <position x="387" y="3790"/>
-                      <position x="367" y="3790"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="ENO" type="BOOL">
-                  <connectionPointOut>
-                    <relPosition x="81" y="50"/>
-                  </connectionPointOut>
-                </variable>
-                <variable formalParameter="OUT" type="REAL">
-                  <connectionPointOut>
-                    <relPosition x="81" y="80"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <inVariable localId="597" height="20" width="24" executionOrderId="0">
-              <position x="343" y="3780"/>
-              <connectionPointOut>
-                <relPosition x="24" y="10"/>
-              </connectionPointOut>
-              <expression>15.0</expression>
-            </inVariable>
-            <outVariable localId="598" height="20" width="33" executionOrderId="0">
-              <position x="488" y="3780"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="596" formalParameter="OUT">
-                  <position x="488" y="3790"/>
-                  <position x="468" y="3790"/>
-                </connection>
-              </connectionPointIn>
-              <expression>Duty1</expression>
-            </outVariable>
-            <block localId="19" width="81" height="90" typeName="MOVE_REAL" instanceName="" executionOrderId="0">
-              <position x="387" y="3840"/>
-              <inputVariables>
-                <variable formalParameter="EN" type="BOOL">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="52">
-                      <position x="387" y="3890"/>
-                      <position x="293" y="3890"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="IN" type="REAL">
-                  <connectionPointIn>
-                    <relPosition x="0" y="80"/>
-                    <connection refLocalId="599">
-                      <position x="387" y="3920"/>
-                      <position x="367" y="3920"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="ENO" type="BOOL">
-                  <connectionPointOut>
-                    <relPosition x="81" y="50"/>
-                  </connectionPointOut>
-                </variable>
-                <variable formalParameter="OUT" type="REAL">
-                  <connectionPointOut>
-                    <relPosition x="81" y="80"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <inVariable localId="599" height="20" width="24" executionOrderId="0">
-              <position x="343" y="3910"/>
-              <connectionPointOut>
-                <relPosition x="24" y="10"/>
-              </connectionPointOut>
-              <expression>20.0</expression>
-            </inVariable>
-            <outVariable localId="600" height="20" width="33" executionOrderId="0">
-              <position x="488" y="3910"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="19" formalParameter="OUT">
-                  <position x="488" y="3920"/>
-                  <position x="468" y="3920"/>
-                </connection>
-              </connectionPointIn>
-              <expression>Duty1</expression>
-            </outVariable>
-            <block localId="601" width="130" height="90" typeName="STRING_TO_UDINT" instanceName="">
-              <position x="653" y="2330"/>
-              <inputVariables>
-                <variable formalParameter="EN" type="BOOL">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="236" formalParameter="ENO">
-                      <position x="653" y="2380"/>
-                      <position x="467" y="2380"/>
-                    </connection>
-                    <connection refLocalId="239" formalParameter="ENO">
-                      <position x="653" y="2380"/>
-                      <position x="572" y="2380"/>
-                      <position x="572" y="2510"/>
-                      <position x="460" y="2510"/>
-                    </connection>
-                    <connection refLocalId="242" formalParameter="ENO">
-                      <position x="653" y="2380"/>
-                      <position x="572" y="2380"/>
-                      <position x="572" y="2640"/>
-                      <position x="460" y="2640"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="IN" type="STRING">
-                  <connectionPointIn>
-                    <relPosition x="0" y="80"/>
-                    <connection refLocalId="602">
-                      <position x="653" y="2410"/>
-                      <position x="633" y="2410"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="ENO" type="BOOL">
-                  <connectionPointOut>
-                    <relPosition x="130" y="50"/>
-                  </connectionPointOut>
-                </variable>
-                <variable formalParameter="OUT" type="UDINT">
-                  <connectionPointOut>
-                    <relPosition x="130" y="80"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <inVariable localId="602" height="20" width="31" executionOrderId="0">
-              <position x="602" y="2400"/>
-              <connectionPointOut>
-                <relPosition x="31" y="10"/>
-              </connectionPointOut>
-              <expression>types</expression>
-            </inVariable>
-            <outVariable localId="603" height="20" width="54" executionOrderId="0">
-              <position x="803" y="2400"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="601" formalParameter="OUT">
-                  <position x="803" y="2410"/>
-                  <position x="783" y="2410"/>
-                </connection>
-              </connectionPointIn>
-              <expression>type_final</expression>
-            </outVariable>
-            <leftPowerRail localId="604" height="40" width="10" isNote="true">
-              <position x="50" y="5880"/>
-              <connectionPointOut formalParameter="">
-                <relPosition x="10" y="20"/>
-              </connectionPointOut>
-              <line x="0" y="5980"/>
-            </leftPowerRail>
-            <comment localId="605" height="20" width="800" type="1">
-              <position x="50" y="5800"/>
-              <content>
-<![CDATA[注释]]>
-              </content>
-            </comment>
-            <contact localId="607" height="15" width="33" comment="光电式1（入口）">
-              <position x="120" y="5890"/>
-              <connectionPointIn>
-                <relPosition x="1" y="10"/>
-                <connection refLocalId="604">
-                  <position x="121" y="5900"/>
-                  <position x="60" y="5900"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="32" y="10"/>
-              </connectionPointOut>
-              <variable>GD1</variable>
-              <variable1></variable1>
-            </contact>
-            <coil localId="608" height="15" width="91">
-              <position x="376" y="5890"/>
-              <connectionPointIn>
-                <relPosition x="30" y="10"/>
-                <connection refLocalId="612" formalParameter="Q">
-                  <position x="406" y="5900"/>
-                  <position x="336" y="5900"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="60" y="10"/>
-              </connectionPointOut>
-              <variable>DO211_CH3</variable>
-            </coil>
-            <block localId="612" width="50" height="90" typeName="TOF" instanceName="TON_inst7">
-              <position x="286" y="5850"/>
-              <inputVariables>
-                <variable formalParameter="IN" type="BOOL">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="607">
-                      <position x="286" y="5900"/>
-                      <position x="152" y="5900"/>
-                    </connection>
-                    <connection refLocalId="615">
-                      <position x="286" y="5900"/>
-                      <position x="183" y="5900"/>
-                      <position x="183" y="5950"/>
-                      <position x="152" y="5950"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="PT" type="TIME">
-                  <connectionPointIn>
-                    <relPosition x="0" y="80"/>
-                    <connection refLocalId="613">
-                      <position x="286" y="5930"/>
-                      <position x="266" y="5930"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="Q" type="BOOL">
-                  <connectionPointOut>
-                    <relPosition x="50" y="50"/>
-                  </connectionPointOut>
-                </variable>
-                <variable formalParameter="ET" type="TIME">
-                  <connectionPointOut>
-                    <relPosition x="50" y="80"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <inVariable localId="613" height="20" width="53" executionOrderId="0">
-              <position x="213" y="5920"/>
               <connectionPointOut>
                 <relPosition x="53" y="10"/>
               </connectionPointOut>
-              <expression>T#200ms</expression>
-            </inVariable>
-            <contact localId="615" height="15" width="33" comment="光电式0">
-              <position x="120" y="5940"/>
-              <connectionPointIn>
-                <relPosition x="1" y="10"/>
-                <connection refLocalId="604">
-                  <position x="121" y="5950"/>
-                  <position x="90" y="5950"/>
-                  <position x="90" y="5900"/>
-                  <position x="60" y="5900"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="32" y="10"/>
-              </connectionPointOut>
-              <variable>GD0</variable>
-              <variable1></variable1>
-            </contact>
+              <variable>DO211_CH1</variable>
+            </coil>
           </LD>
         </body>
       </pou>
